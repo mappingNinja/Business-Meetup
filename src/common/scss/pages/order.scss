@@ -1,0 +1,463 @@
+@import "../main";
+
+.order-page{
+    min-height: calc(100vh - 113px);
+    @include vw{
+        min-height: calc(100vh - #{get-vw(113px)});
+    }
+    .order{
+        .page-title{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            text-align: center;
+            @include vw{
+                padding-top: get-vw(30px);
+                padding-bottom: get-vw(30px);
+            }
+            h6{
+                font-weight: 400;
+                margin-bottom: 0;
+            }
+            
+        }
+        &.product-order{
+            .page-title{
+                h6{
+                    font-weight: 700;
+                }
+            }
+        }
+        &-table{
+            @include tablet{
+                overflow: auto;
+            }
+            table{
+                
+                width: 100%;
+                @include mobile{
+                    min-width: 1024px;
+                }
+                @include themed(){
+                    border: 1px solid t($text-secondary);
+                    background-color: t($tag-bg);
+                }
+                th,td{
+                    padding: 10px;
+                    font-weight: 400;
+                    text-align: center;
+                    @include themed(){
+                        border: 1px solid t($text-secondary);
+                    }
+                    @include vw{
+                        padding: get-vw(10px);
+                    }
+                    &.height-light{
+                        background-color: #D8E9F2;
+                        color: #000;
+                    }
+                    input{
+                        background-color: #E2F4FF;
+                        border: 1px solid #A8A8A8;
+                        color: #000;
+                        text-align: center;
+                    }
+                }
+            }
+            .btn-wrap{
+                @include mobile{
+                    min-width:1024px ;
+                }
+            }
+            
+        }
+        .btn-wrap{
+            text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            @include vw{
+                padding-top: get-vw(30px);
+                padding-bottom: get-vw(30px);
+            }
+            .button{
+                padding: 12px 20px;
+                margin-left: 15px;
+                @include vw{
+                    padding: get-vw(12px) get-vw(20px);
+                    margin-left: get-vw(15px);
+                }
+                @include tablet-small{
+                    padding: 4px 9px;
+                    font-size: 14px;
+                }
+                &[class*="--bordered"]{
+                    @include themed(){
+                        background-color: t($card-bg);
+                    }
+                }
+                svg{
+                    width: 20px;
+                    height: 18px;
+                    margin-right: 18px;
+                    vertical-align: middle;
+                    @include vw{
+                        width: get-vw(20px);
+                        height: get-vw(18px);
+                        margin-right: get-vw(18px);
+                    }
+                    @include mobile{
+                        width: 12px;
+                        height: 10px;
+                        margin-right: 10px;
+                    }
+                }
+                &:first-child{
+                    margin-left: 0;
+                }
+                &.download-btn{
+                    background-color: rgba($primary-color,0.3);
+                }
+            }
+        }
+    }
+    .steps{
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            @include display-flex(flex);
+            width: 100%;
+            position: relative;
+            
+            .step{
+                @include display-flex(flex);
+                @include align-item(center);
+                @include flex-direction(column);
+                padding: 0 10px;
+                position: relative;
+                @include vw{
+                    padding: 0 get-vw(10px);
+                }
+                @include tablet{
+                    flex: 1 1 calc(100% /9);
+                    max-width: calc(100% / 9);
+                    padding: 0 5px;
+                }
+                &::before{
+                    content: "";
+                    width: 50%;
+                    height: 1px;
+                    position: absolute;
+                    left: 0;
+                    top: 14px;
+                    z-index: 0;
+                    @include themed(){
+                        background-color: t($text-secondary)
+                    }
+                    @include vw{
+                        top: get-vw(14px);
+                    }
+                    @include tablet{
+                        top: 10px;
+                    }
+                }
+                &::after{
+                    content: "";
+                    width: 50%;
+                    height: 1px;
+                    position: absolute;
+                    left: 50%;
+                    top: 14px;
+                    z-index: 0;
+                    @include themed(){
+                        background-color: t($text-secondary)
+                    }
+                    @include vw{
+                        top: get-vw(14px);
+                    }
+                    @include tablet{
+                        top: 10px;
+                    }
+                }
+                &:first-child{
+                    padding-left: 0;
+                    &::before{
+                        display: none;
+                    }
+                }
+                &:last-child{
+                    padding-right: 0;
+                    &::after{
+                        display: none;
+                    }
+                }
+                
+                &-indicator{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    color: #fff;
+                    @include display-flex(flex);
+                    @include align-item(center);
+                    @include justify-content(center);
+                    font-size: 18px;
+                    font-weight: 600;
+                    position: relative;
+                    z-index: 1;
+                    @include themed(){
+                        background-color: t($text);
+                        box-shadow: 0 0 0 5px rgba(t($text),0.3);
+                    }
+                    @include vw{
+                        font-size: get-vw(18px);
+                        width: get-vw(30px);
+                        height: get-vw(30px);
+                    }
+                    @include tablet{
+                        width: 20px;
+                        height: 20px;
+                        font-size: 12px;
+                    }
+                }
+                &-label{
+                    font-weight: 600;
+                    padding: 11px 18px;
+                    border-radius: 5px;
+                    display: inline-block;
+                    margin-top: 14px;
+                    margin-bottom: 7px;
+                    @include themed(){
+                        background-color: t($tag-bg);
+                        border: 1px solid t($tag-bg);
+                        color: t($text-secondary);
+                    }
+                    @include vw{
+                        padding: get-vw(11px) get-vw(18px);
+                        border-radius: get-vw(5px);
+                        margin-top: get-vw(14px);
+                        margin-bottom: get-vw(7px);
+                    }
+                    @include tablet{
+                        display: none;
+                    }
+                }
+                &-tag{
+                    font-size: 14px;
+                    @include vw{
+                        font-size: get-vw(14px);
+                    }
+                    @include themed(){
+                        color: rgba(t($text),0.5);
+                    }
+                    @include tablet{
+                        display: none;
+                    }
+                }
+                &.active{
+                    .step-indicator{
+                        @include themed(){
+                            background-color: $button-blue;
+                            box-shadow: 0 0 0 5px rgba($button-blue,0.3);
+                        }
+                    }
+                    .step-label{
+                        @include themed(){
+                            background-color: $button-blue;
+                            border-color: $button-blue;
+                            color: $white-color;
+                        }
+                    }
+                }
+                &.completed{
+                    .step-indicator{
+                        @include themed(){
+                            background-color: $primary-color;
+                            box-shadow: 0 0 0 5px rgba($primary-color,0.3);
+                        }
+                    }
+                    .step-label{
+                        @include themed(){
+                            background-color: rgba($primary-color,0.3);
+                            border-color: $primary-color;
+                            color: $black-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .company-detail-page{
+        .company-detail{
+            max-width: 1000px;
+            margin: auto;
+            @include vw{
+                max-width: get-vw(1000px);
+            }
+            .page-title{
+                text-align: center;
+                padding: 0;
+                h6{
+                    margin-bottom: 10px;
+                    @include vw{
+                        margin-bottom: get-vw(10px);
+                    }
+                    @include tablet-small{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    .purchase-order-page{
+        .purchase-order{
+            max-width: none;
+        }
+        .page-title{
+            .button{
+                float: right;
+                padding: 8px 20px;
+                margin-top: -40px;
+                @include vw{
+                    padding: get-vw(8px) get-vw(20px);
+                    margin-top: get-vw(-40px);
+                }
+                @include tablet-small{
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    margin-top: -30px;
+                }
+                @include mobile{
+                    float: none;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .purchase-order-head{
+            @include display-flex(flex);
+            @include align-item(center);
+            @include mobile{
+                @include flex-wrap(wrap);
+            }
+            .po-id{
+                font-weight: 600;
+                @include tablet-small{
+                    font-size: 14px;
+                }
+            }
+            .form-field{
+                margin-bottom: 0;
+                margin-left: 10px;
+                margin-right: 10px;
+                @include vw{
+                    margin-left: get-vw(10px);
+                    margin-right: get-vw(10px);
+                }
+                @include mobile{
+                    width: 100%;
+                    margin: 10px 0;
+                }
+                label{
+                    @include display-flex(flex);
+                    @include align-item(center);
+                    margin-bottom: 0;
+                    @include tablet-small{
+                        font-size: 14px;
+                    }
+                    &::after{
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                    .form-input{
+                        min-width: 300px;
+                        @include themed(){
+                            background-color: t($card-bg);
+                        }
+                        @include vw{
+                            min-width: get-vw(300px);
+                        }
+                        @include tablet-small{
+                            min-width: 0;
+                        }
+                    }
+                    .button{
+                        padding: 9px 20px;
+                        margin-left: 10px;
+                        @include vw{
+                            padding: get-vw(9px) get-vw(20px);
+                            margin-left: get-vw(10px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .invoice-top{
+        margin-bottom: 15px;
+        @include themed(){
+            border-bottom: 1px solid t($border);
+        }
+        @include vw{
+            margin-bottom: get-vw(15px);
+        }
+        .col-sm{
+            @include tablet-small{
+                max-width: 33.3%;
+                width: 33.3%;
+                flex: auto;
+            }
+            @include mobile{
+                width: 50%;
+                max-width: none;
+            }
+        }
+    }
+    
+}
+.theme--dark{
+    .order-page .steps ul .step-indicator{
+        color: #000;
+    }
+    .download-btn,.order-page .steps ul .step.active .step-indicator,.order-page .steps ul .step.completed .step-label{
+        color: #fff;
+    }
+}
+.bank-detail-page{
+    .bank-detail{
+        max-width: 890px;
+        margin: auto;
+        border-radius: 5px;
+        padding: 30px;
+        @include vw{
+            max-width: get-vw(890px);
+            border-radius: get-vw(5px);
+            padding: get-vw(30px);
+        }
+        @include themed(){
+            background-color: t($card-bg);
+            border: 1px solid t($border);
+        }
+        .flex-item{
+            width: 100%;
+        }
+    }
+    .upi-code{
+        @include display-flex(flex);
+        @include justify-content(center);
+        @include align-item(center);
+        padding: 10px 0;
+        @include themed(){
+            border-top: 1px solid t($border);
+        }
+        @include vw{
+            padding: get-vw(10px) 0;
+        }
+    }
+}
+.e-bill-page{
+    .e-bill{
+        text-align: center;
+        .delivered-img{
+            max-width: 350px;
+        }
+    }
+}

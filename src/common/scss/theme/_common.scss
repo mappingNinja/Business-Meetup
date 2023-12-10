@@ -1,0 +1,1058 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  padding: 0;
+  font-weight: 400;
+  font-family: $body-font;
+  font-size: $body-font-size;
+  line-height: 1.1;
+  overflow-y: scroll;
+
+  @include vw {
+    font-size: get-vw($body-font-size);
+  }
+}
+.theme-inner{
+  overflow: unset;
+  @include themed() {
+    color: t($text);
+    background: t($card-bg);
+  }
+  @include tablet{
+    overflow-x: hidden;
+  }
+}
+.grey-bg{
+  @include themed() {
+    background: t($bg);
+  }
+}
+.modal-open .header-home {
+  padding-right: 17px;
+}
+.container-fluid{
+  padding-left: 50px;
+  padding-right: 50px;
+
+  @include vw{
+    padding-left: get-vw(50px);
+    padding-right: get-vw(50px);
+  }
+  @include tablet-small{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin: 0 0 30px 0;
+  padding: 0;
+  font-weight: 700;
+  text-decoration: none;
+
+  @include vw {
+    margin: 0 0 get-vw(30px) 0;
+  }
+}
+
+h1,
+.h1 {
+  font-size: 56px;
+
+  @include vw {
+    font-size: get-vw(56px);
+  }
+}
+
+h2,
+.h2 {
+  font-size: 48px;
+
+  @include vw {
+    font-size: get-vw(48px);
+  }
+}
+
+h3,
+.h3 {
+  font-size: 40px;
+
+  @include vw {
+    font-size: get-vw(40px);
+  }
+}
+
+h4,
+.h4 {
+  font-size: 32px;
+
+  @include vw {
+    font-size: get-vw(32px);
+  }
+}
+
+h5,
+.h5 {
+  font-size: 22px;
+
+  @include vw {
+    font-size: get-vw(22px);
+  }
+}
+
+h6,
+.h6 {
+  font-size: 20px;
+
+  @include vw {
+    font-size: get-vw(20px);
+  }
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $primary-color;
+  }
+}
+
+
+p {
+  margin-bottom: 20px;
+
+  @include vw {
+    margin-bottom: get-vw(20px);
+  }
+
+  &:focus-visible {
+    outline: none !important;
+  }
+}
+
+ul,
+ol {
+  margin-left: 30px;
+  margin-bottom: 30px;
+
+  @include vw {
+    margin-left: get-vw(30px);
+    margin-bottom: get-vw(30px);
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+hr {
+  margin: 30px 0;
+
+  @include vw {
+    margin: get-vw(30px) 0;
+  }
+}
+
+address {
+  font-style: normal;
+  margin-bottom: 20px;
+
+  @include vw {
+    margin-bottom: get-vw(20px);
+  }
+}
+
+blockquote {
+  margin-bottom: 20px;
+  font-size: 18px;
+
+  @include vw {
+    margin-bottom: get-vw(20px);
+    font-size: get-vw(18px);
+  }
+}
+.page{
+  padding-top: 70px;
+  min-height: calc(100vh - 36px);
+  @include themed(){
+    background-color: t($bg);
+  }
+  @include vw{
+    padding-top: get-vw(70px);
+    min-height: calc(100vh - #{get-vw(36px)});
+  }
+  @include tablet{
+    padding-top: 0;
+  }
+}
+/* ========== COMMON CLASS ========== */
+
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  @include display-flex(flex);
+}
+
+.align-v-center {
+  @include align-item(center);
+}
+
+.align-start {
+  @include align-item(flex-start);
+}
+
+.align-end {
+  @include align-item(flex-end);
+}
+
+.align-self-start {
+  @include align-self(flex-start);
+}
+
+.justify-center {
+  @include justify-content(center);
+}
+
+.justify-right {
+  @include justify-content(flex-end);
+}
+
+.justify-space {
+  @include justify-content(space-between);
+}
+
+.flex-wrap {
+  @include flex-wrap(wrap);
+}
+
+.flex-direction {
+  @include flex-direction(column);
+}
+
+.clearfix,
+.clearfix {
+
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+.text-medium{
+  font-weight: 600;
+  font-size: 16px;
+  @include vw{
+    font-size: get-vw(16px);
+  }
+}
+.text-grey{
+  @include themed(){
+    color: t($text);
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+.modal{
+  .modal-content{
+    @include themed(){
+      background-color: t($card-bg);
+    }
+  }
+  .modal-title{
+    font-size: 16px;
+      line-height: 1.375;
+      font-weight: 600;
+      margin-bottom: 0;
+      @include themed(){
+        color: t($text-secondary);
+      }
+      @include vw{
+        font-size: get-vw(16px);
+      }
+  }
+}
+.chips{
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  @include themed(){
+    background-color: t($tag-bg);
+    border: 1px solid t($border);
+  }
+  @include vw{
+    padding: get-vw(10px);
+    border-radius: get-vw(5px);
+  }
+  @include mobile{
+    margin-bottom: 10px;
+  }
+  &:hover{
+    border-color: $primary-color;
+  }
+  &--value,&--text{
+    font-weight: 600;
+
+    @include themed(){
+      color: t($text-secondary);
+    }
+  }
+  &--value{
+    font-size: 21px;
+    margin-bottom: 8px;
+    @include vw{
+      font-size: get-vw(21px);
+      margin-bottom: get-vw(8px);
+    }
+    @include mobile{
+      font-size: 14px;
+    }
+  }
+  &--text{
+    font-size: 16px;
+    @include vw{
+      font-size: get-vw(16px);
+    }
+    @include mobile{
+      font-size: 14px;
+    }
+  }
+  &-withButton{
+    padding-right: 64px;
+    position: relative;
+    height: 100%;
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+    min-height: 71px;
+    cursor: pointer;
+    @include themed(){
+      border: 1px solid t($border);
+    }
+    @include vw{
+      padding-right: get-vw(64px);
+      min-height: get-vw(71px);
+    }
+    
+      
+    .chips--text{
+      font-size: 16px;
+      @include themed(){
+        color: t($text-important);
+      }
+      @include vw{
+        font-size: get-vw(16px);
+      }
+    }
+    .button{
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 64px;
+      height: 100%;
+      padding: 0;
+      border-radius: 0 5px 5px 0;
+      border: none;
+      @include vw{
+        width: get-vw(64px);
+        border-radius: 0 get-vw(5px) get-vw(5px) 0;
+      }
+      svg{
+        width: 22px;
+        height: 26px;
+        @include vw{
+          width: get-vw(22px);
+          height: get-vw(26px);
+        }
+      }
+    }
+  }
+  &-create{
+    height: 100%;
+    width: 100%;
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(center);
+    background-color: $primary-color !important;
+    cursor: pointer;
+    border: 1px solid  $primary-color !important;
+    .chips--text{
+      color: #3B3B38;
+      svg{
+        width: 45px;
+        height: 45px;
+        margin-right: 20px;
+        vertical-align: middle;
+        display: inline-block;
+        @include vw{
+          width: get-vw(45px);
+          height: get-vw(45px);
+          margin-right: get-vw(20px);
+        }
+      }
+    }
+  }
+  &--white{
+    padding: 8px;
+    border-radius: 10px;
+    position: relative;
+    @include themed(){
+      background-color: t($card-bg);
+      box-shadow: 0px 16px 24px rgba(t($text-secondary), 0.06), 0px 2px 6px rgba(t($text-secondary), 0.04), 0px 0px 1px rgba(t($text-secondary), 0.04);
+    }
+    @include vw{
+      border-radius: get-vw(10px);
+      padding: get-vw(8px);
+      position: relative;
+    }
+    .chips--text{
+      font-size: 14px;
+      line-height: 1.1875;
+      font-weight: 500;
+      margin-bottom: 5px;
+      @include themed(){
+        color: rgba(t($text-secondary), 0.8);
+      }
+      @include vw{
+        font-size: get-vw(14px);
+        margin-bottom: get-vw(5px);
+      }
+      svg{
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        margin-left: 12px;
+        @include vw{
+          width: get-vw(16px);
+          height: get-vw(16px);
+          margin-left: get-vw(12px);
+        }
+        &.complete{
+          path{
+            fill: #27AE60;
+          }
+        }
+      }
+    }
+    .chips--value{
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      margin-bottom: 0;
+      @include vw{
+        font-size: get-vw(14px);
+        line-height: get-vw(22px);
+      }
+      p{
+        margin-bottom: 0;
+      }
+      .text-small{
+        font-size: 12px;
+        @include vw{
+          font-size: get-vw(12px);
+        }
+        svg{
+          width: 14px;
+          height: 14px;
+          margin-right: 7px;
+          vertical-align: middle;
+          @include vw{
+            width: get-vw(14px);
+            height: get-vw(14px);
+            margin-right: get-vw(7px);
+          }
+        }
+      }
+      .color-red{
+        color: #FF0000;
+      }
+    }
+    .button-edit{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-radius: 15px 0px 10px;
+      padding: 0;
+      border: none;
+      background-color: $primary-color;
+      width: 25px;
+      height: 25px;
+      @include vw{
+        width: get-vw(25px);
+        height: get-vw(25px);
+        border-radius: get-vw(15px) 0px get-vw(10px);
+      }
+      &:hover,&:focus{
+        border: none;
+      }
+      svg{
+        width: 12px;
+        height: 12px;
+        @include vw{
+          width: get-vw(12px);
+          height: get-vw(12px);
+        }
+        path{
+          fill: $black-color;
+        }
+      }
+    }
+  }
+}
+.progresses{
+  margin-bottom: 22px;
+  @include vw{
+    margin-bottom: get-vw(22px);
+  }
+  label{
+    margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 16px;
+    @include themed(){
+      color: t($text-secondary);
+    }
+    @include vw{
+      margin-bottom: get-vw(13px);
+      font-size: get-vw(16px);
+    }
+  }
+  &-bar{
+    background-color: #E8E8E8;
+    position: relative;
+    height: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+    @include vw{
+      height: get-vw(6px);
+      border-radius: get-vw(10px);
+    }
+    &--value{
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $primary-color;
+    }
+  }
+  
+}
+
+.padding-none {
+  padding: 0 !important;
+}
+
+.margin-none {
+  margin: 0 !important;
+}
+
+.link {
+  color: $primary-color;
+  text-decoration: underline;
+}
+.color-primary{
+  color: $primary-color;
+}
+
+.desktop-view {
+  display: block;
+  @include tablet-small {
+    display: none;
+  }
+}
+
+.mobile-view {
+  display: none;
+
+  @include tablet-small {
+    display: block;
+  }
+}
+/*---===[ Error Message ]===---*/
+.error-message {
+  @include display-flex(flex);
+  @include align-item(center);
+  color: $error-color;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 600;
+
+  @include vw{
+    font-size: get-vw(14px);
+    margin-top: get-vw(5px);
+  }
+
+  svg{
+    margin-right: 5px;
+    fill: $error-color;
+    width: 16px;
+    height: 16px;
+
+    @include vw{
+      width: get-vw(16px);
+      height: get-vw(16px);
+      margin-right: get-vw(5px);
+    }
+  }
+}
+/*---===[ Card Design ]===---*/
+.card{
+  border-radius: 5px;
+  margin-bottom: 10px;
+  @include themed() {
+    background-color: t($card-bg);
+    border: 1px solid t($card-border);
+    color: t($text-secondary);
+  }
+  @include vw{
+    border-radius: get-vw(5px);
+    margin-bottom: get-vw(10px);
+  }
+  &-header{
+    background-color: transparent;
+    border-bottom: none;
+    padding:15px 20px;
+    @include display-flex(flex);
+    @include justify-content(space-between);
+
+    @include vw{
+      padding:get-vw(15px) get-vw(20px);
+    }
+    
+    h6{
+      font-size: 16px;
+      line-height: 1.375;
+      font-weight: 600;
+      margin-bottom: 0;
+      @include themed(){
+        color: t($text-secondary);
+      }
+      @include vw{
+        font-size: get-vw(16px);
+      }
+    }
+    a{
+      color: inherit;
+      font-size: 14px;
+      line-height: 1.3571;
+      font-weight: 600;
+      @include vw{
+        font-size: get-vw(14px);
+      }
+      &:hover{
+        color: $primary-color;
+      }
+    }
+    &--large{
+      @include themed(){
+        border-bottom:1px solid t($border);
+      }
+      h6{
+        font-size: 16px;
+        @include themed(){
+          color: t($text-secondary);
+        }
+        @include vw{
+          font-size: get-vw(16px);
+        }
+        
+        svg{
+          margin-right: 10px;
+          vertical-align: middle;
+          width: 22px;
+          height: 22px;
+          @include vw{
+            width: get-vw(22px);
+            height: get-vw(22px);
+            margin-right: get-vw(10px);
+          }
+          path{
+            @include themed(){
+              fill: t($text-secondary);
+            }
+          }
+        }
+      }
+      .button-edit{
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        &:hover,&:focus{
+          border: none;
+          outline: 0;
+        }
+        svg{
+          width: 22px;
+          height: 22px;
+          @include vw{
+              width: get-vw(22px);
+              height: get-vw(22px);
+          }
+          path{
+            fill: $primary-color;
+          }
+        }
+      }
+    }
+  }
+  &-body{
+    padding: 20px;
+
+    @include vw{
+      padding: get-vw(20px);
+    }
+  }
+  &-lists{
+    &-item{
+      margin-bottom: 12px;
+      @include vw{
+        margin-bottom: get-vw(12px);
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+  &-footer{
+    background-color: transparent;
+    text-align: center;
+    border-top: none;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    @include vw{
+      padding-top: get-vw(26px);
+      padding-bottom: get-vw(26px);
+    }
+    @include tablet-small{
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    
+  }
+}
+
+/*---===[ User Profile -- List ]===---*/
+.user-profile{
+  @include display-flex(flex);
+  @include align-item(center);
+  @include tablet-small{
+    @include align-item(flex-start);
+  }
+
+  &-image{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    @include vw{
+      width: get-vw(50px);
+      height: get-vw(50px);
+      margin-right: get-vw(10px);
+    }
+    @include tablet-small{
+      width: 35px;
+      height: 35px;
+      margin-right: 5px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      @include vw{
+        border-radius: get-vw(5px);
+      }
+    }
+  }
+  &-content{
+    
+    @include display-flex(flex);
+    @include justify-content(space-between);
+    width: calc(100% - 60px);
+    @include vw{
+      width: calc(100% - #{get-vw(60px)});
+    }
+    @include tablet-small{
+      @include flex-wrap(wrap);
+      width: calc(100% - 40px);
+    }
+    h6{
+      margin-bottom: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 5px;
+      word-break: break-all;
+      @include themed(){
+        color: t($text-secondary);
+    }
+
+      @include vw{
+        font-size: get-vw(14px);
+        margin-bottom: get-vw(5px);
+      }
+    }
+    p{
+      margin-bottom: 0;
+      @include themed(){
+        color: t($text);
+      }
+      img{
+        width: 11px;
+        height: 11px;
+        margin-right: 4px;
+        vertical-align: inherit;
+        @include vw{
+          width: get-vw(11px);
+          height: get-vw(11px);
+          margin-right: get-vw(4px);
+        }
+      }
+    }
+    .button{
+      &-connect{
+        max-width: 85px;
+        padding: 4px 9px;
+        font-size: 12px;
+        line-height: 1.384615;
+        font-weight: 600;
+        height: 30px;
+        white-space: nowrap;
+        @include vw{
+          max-width: get-vw(85px);
+          padding: get-vw(4px) get-vw(9px);
+          font-size: get-vw(12px);
+          height: get-vw(30px);
+        }
+        @include tablet-small{
+          padding: 4px 9px;
+          height: 30px;
+          max-width: none;
+        }
+        svg{
+          margin-right: 2px;
+          width: 10px;
+          height: 11px;
+          @include vw{
+            margin-right: get-vw(2px);
+            width: get-vw(10px);
+            height: get-vw(11px);
+          }
+          path{
+            fill: $text--imp--light;
+          }
+        }
+      }
+      
+    }
+  }
+}
+.swal-modal{
+  .button{
+    padding-left: 15px;
+    padding-right: 15px;
+    @include vw{
+      padding-left: get-vw(15px);
+      padding-right: get-vw(15px);
+    }
+  }
+}
+/*---===[ Flex Box ]===---*/
+.flex-box{
+  @include display-flex(flex);
+  padding: 10px;
+  @include vw{
+    padding: get-vw(10px);
+  }
+  .flex-item{
+    margin: 10px;
+    width: 100%;
+    @include vw{
+      margin: get-vw(10px);
+    }
+  }
+}
+.content-page{
+  min-height: calc(100vh - 108px);
+  padding: 0 50px;
+  @include vw{
+    min-height: calc(100vh - #{get-vw(108px)});
+    padding: get-vw(50px) 0;
+  }
+}
+
+/*---===[ Tags ]===---*/
+.tags{
+  margin-bottom: 4px;
+  @include vw{
+    margin-bottom: get-vw(4px);
+  }
+  &--title{
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    font-weight: 600;
+    @include themed(){
+      color: t($text-secondary);
+    }
+    @include vw{
+      font-size: get-vw(12px);
+      margin-bottom: get-vw(4px);
+    }
+  }
+  .attachment{
+    svg{
+      width: 14px;
+      height: 14px;
+      @include vw{
+        width: get-vw(14px);
+        height: get-vw(14px);
+      }
+      path{
+        @include themed{
+          fill: t($text-secondary);
+        }
+      }
+    }
+  }
+  .tag{
+    display: inline-block;
+    padding: 1px 6px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+    @include themed(){
+      color: t($text);
+      background-color: t($tag-bg);
+      border: 1px solid t($border);
+    }
+    @include vw{
+      padding: get-vw(1px) get-vw(6px);
+      margin-right: get-vw(4px);
+      margin-bottom: get-vw(4px);
+      font-size: get-vw(12px);
+    }
+  }
+  &-regular{
+    .tag{
+      font-size: 16px;
+      padding: 5px 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      @include themed(){
+        color: t($text-secondary);
+      }
+      @include vw{
+        font-size: get-vw(16px);
+        padding: get-vw(5px) get-vw(10px);
+        margin-right: get-vw(10px);
+        margin-bottom: get-vw(10px);
+        border-radius: get-vw(5px);
+      }
+      svg{
+        width: 16px;
+        height: 16px;
+        margin-left: 22px;
+        @include vw{
+          width: get-vw(16px);
+          height: get-vw(16px);
+          margin-left: get-vw(22px);
+        }
+        path{
+          @include themed(){
+            fill: t($text-secondary);
+          }
+        }
+      }
+    }
+  }
+}
+/*---===[ TABS ]===---*/
+.tabs{
+  & > ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 5px;
+    overflow: hidden;
+    @include vw{
+      border-radius: get-vw(5px);
+    }
+    @include themed(){
+      border: 1px solid t($text-secondary);
+    }
+    li{
+      display: inline-block;
+      @include themed(){
+        border-right: 1px solid t($text-secondary);
+      }
+      &:last-child{
+        border-right: none;
+      }
+      a{
+        padding: 13px 35px;
+        font-size: 18px;
+        line-height: 1.1;
+        font-weight: 600;
+        @include vw{
+          padding: get-vw(13px) get-vw(35px);
+          font-size: get-vw(18px);
+        }
+      }
+      
+    }
+  }
+  &--solid{
+    ul{
+      li{
+        a{
+          background-color: $button-disable;
+          color: $text--imp--light;
+        }
+        &.active,&:hover{
+          a{
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}

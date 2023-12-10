@@ -1,0 +1,79 @@
+@import "../main";
+footer{
+    @include themed(){
+        background-color: t($tag-bg);
+    }
+    padding: 8px 0;
+
+    @include vw{
+        padding: get-vw(8px) 0;
+    }
+    
+    .container-fluid{
+        @include display-flex(flex);
+        @include align-item(center);
+        @include justify-content(space-between);
+        @include mobile{
+            @include flex-direction(column);
+        }
+    }
+    .footer-left{
+        @include themed(){
+            color: t($text-secondary);
+        }
+        font-size: 20px;
+        line-height: 1.2;
+
+        @include vw{
+            font-size: get-vw(20px);
+        }
+        @include tablet-small{
+            font-size: 14px;
+        }
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        li{
+            display: inline-block;
+            a{
+                @include themed(){
+                    color: t($text-secondary);
+                }
+                font-size: 16px;
+                line-height: 1.375;
+                padding: 0 21.5px;
+                text-decoration: none;
+
+                @include vw{
+                    font-size: get-vw(16px);
+                    padding: 0 get-vw(21.5px);
+                }
+                @include tablet-small{
+                    padding: 0 10px;
+                    font-size: 14px;
+                }
+                @include mobile{
+                    padding: 10px 0;
+                }
+                &:hover{
+                    color: $primary-color;
+                }
+                
+            }
+            &:last-child{
+                a{
+                    padding-right: 0;
+                }
+            }
+
+            @include mobile{
+                display: block;
+                text-align: center;
+            }
+        }
+        @include mobile{
+            margin-top: 20px;
+        }
+    }
+}

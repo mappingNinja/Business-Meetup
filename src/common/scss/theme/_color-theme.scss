@@ -1,0 +1,59 @@
+//shortcuts
+$bg: 'bg';
+$header2-bg: 'header2-bg';
+$header-bg: 'header-bg';
+$card-bg: 'card-bg';
+$text: 'text';
+$text-important: 'text-important';
+$text-secondary: 'text-secondary';
+$border: 'border';
+$card-border: 'card-border';
+$tag-bg: 'tag-bg';
+
+//themes
+$themes: (
+  default: (bg: $bg--light,
+    header2-bg: $header2--light,
+    header-bg: $header--light,
+    card-bg: $bg--card--light,
+    text: $text--light,
+    text-important: $text--imp--light,
+    text-secondary: $text--2--light,
+    border: $border--light,
+    card-border:$card--border--light,
+    tag-bg:$tag--bg--light ),
+    
+  dark: (bg: $bg--dark,
+    header2-bg: $header2--dark,
+    header-bg: $header--dark,
+    card-bg: $bg--card--dark,
+    text: $text--dark,
+    text-important: $text--imp--dark,
+    text-secondary: $text--2--dark,
+    border: $border--dark,
+    card-border:$card--border--dark,
+    tag-bg:$tag--bg--dark ),
+);
+
+@mixin themed() {
+
+  @each $theme,
+  $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+
+      @each $key,
+      $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

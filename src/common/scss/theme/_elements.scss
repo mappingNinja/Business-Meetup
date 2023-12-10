@@ -1,0 +1,712 @@
+/*---===[ Buttons ]===---*/
+.button,button{
+    padding: 8px 80px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.375;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    &:focus-visible,&:focus,&:focus-within{
+        outline: 0;
+        border: none;
+        /*@include themed() {
+            border-color: t($text-secondary);
+        }*/
+    }
+
+    @include vw{
+        padding: get-vw(8px) get-vw(80px);
+        font-size: get-vw(16px);
+        border-radius: get-vw(4px);
+    }
+    &-hasIcon{
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='%23ffffff'%3E%3Cpath d='M10 9V6L14 10L10 14V11H6V9H10ZM10 0C15.52 0 20 4.48 20 10C20 15.52 15.52 20 10 20C4.48 20 0 15.52 0 10C0 4.48 4.48 0 10 0ZM10 18C14.42 18 18 14.42 18 10C18 5.58 14.42 2 10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18Z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 21px center;
+
+        @include vw{
+            background-position: right get-vw(21px) center;
+        }
+    }
+
+    &-primary{
+        background-color: $primary-color;
+        border: 2px solid $primary-color;
+        color: $text--imp--light;
+
+        &--bordered{
+            background-color: transparent;
+            @include themed() {
+                color: t($text-important);
+            }
+
+            &:hover,&:focus{
+                background-color: $primary-color;
+                border: 2px solid $primary-color;
+                @include themed() {
+                    color: t($text-important);
+                }
+            }
+        }
+
+        &:hover,&:focus{
+            background-color: rgba($primary-color, 0.8);
+            border:2px solid rgba($primary-color, 0.8);
+            color: $text--imp--light;
+            /*@include themed() {
+                color: t($text-important);
+            }*/
+        }
+
+        &.button-hasIcon{
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='%3B3B38'%3E%3Cpath d='M10 9V6L14 10L10 14V11H6V9H10ZM10 0C15.52 0 20 4.48 20 10C20 15.52 15.52 20 10 20C4.48 20 0 15.52 0 10C0 4.48 4.48 0 10 0ZM10 18C14.42 18 18 14.42 18 10C18 5.58 14.42 2 10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18Z'/%3E%3C/svg%3E");    
+            
+        }
+    }
+
+    &-secondary{
+        background-color: $secondary-color;
+        border: 2px solid $secondary-color;
+        color: $white-color;
+
+        &--bordered{
+            background-color: transparent;
+            color: $secondary-color;
+
+            &:hover{
+                background-color: $secondary-color;
+                color: $white-color;
+            }
+        }
+
+        &:hover,&:focus{
+            background-color: rgba($secondary-color, 0.8);
+            border: 2px solid rgba($secondary-color, 0.8);
+            color: $white-color;
+        }
+    }
+
+    &-blue{
+        background-color: $button-blue;
+        border: 2px solid $button-blue;
+        color: $white-color;
+
+        &--bordered{
+            background-color: transparent;
+            @include themed() {
+                color: t($text-important);
+            }
+
+            &:hover,&:focus{
+                background-color: $button-blue;
+                border: 2px solid $button-blue;
+                @include themed() {
+                    color: t($text-important);
+                }
+            }
+        }
+
+        &:hover,&:focus{
+            background-color: rgba($button-blue, 0.8);
+            border-color: rgba($button-blue, 0.8);
+            color: $white-color;
+        }
+    }
+
+    &-red{
+        background-color: $button-red;
+        border: 2px solid $button-red;
+        color: $white-color;
+
+        &--bordered{
+            background-color: transparent;
+            @include themed() {
+                color: t($text-important);
+            }
+
+            &:hover,&:focus{
+                background-color: $button-red;
+                border: 2px solid $button-red;
+                @include themed() {
+                    color: t($text-important);
+                }
+            }
+        }
+
+        &:hover{
+            background-color: rgba($button-red, 0.8);
+            border-color: rgba($button-red, 0.8);
+            color: $white-color;
+        }
+    }
+
+    &-green{
+        background-color: $button-green;
+        border: 2px solid $button-green;
+        color: $white-color;
+
+        &--bordered{
+            background-color: transparent;
+            @include themed() {
+                color: t($text-important);
+            }
+
+            &:hover,&:focus{
+                background-color: $button-green;
+                border: 2px solid $button-green;
+                @include themed() {
+                    color: t($text-important);
+                }
+            }
+        }
+
+        &:hover{
+            background-color: rgba($button-green, 0.8);
+            border-color: rgba($button-green, 0.8);
+            color: $white-color;
+        }
+    }
+
+    &-disabled{
+        background-color: $button-disable;
+        border: 2px solid $button-disable;
+        color: #818181;
+
+        &--bordered{
+            background-color: transparent;
+            color: $text--imp--light;
+
+            &:hover{
+                background-color: $button-disable;
+                color: #818181;
+            }
+        }
+
+        &:hover{
+            background-color: rgba($button-disable, 0.8);
+            border-color: rgba($button-disable, 0.8);
+            color: #818181;
+        }
+    }
+    &:hover{
+        text-decoration: none;
+    }
+}
+.button[disabled]{
+    background-color: $button-disable;
+        border: 2px solid $button-disable;
+        color: #818181;
+}
+
+/*---===[ Form Elements ]===---*/
+.form-field{
+    margin-bottom: 15px;
+    position: relative;
+    div[class*="-container"]{
+        color: #000;
+    }
+    @include vw{
+        margin-bottom: get-vw(15px);
+    }
+    .toggle-password{
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        position: absolute;
+        top: 42px;
+        right: 17px;
+        cursor: pointer;
+
+        @include vw{
+            top: get-vw(42px);
+            right: get-vw(17px);
+        }
+
+        @include tablet-small{
+            top: 42px;
+        }
+    }
+}
+.form-label{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.375;
+    margin-bottom: 8px;
+    .mendatory{
+        color: $error-color;
+    }
+    span{
+        &:not(.mendatory){
+            font-weight: 600;
+        }
+    }
+
+    @include vw{
+        font-size: get-vw(14px);
+        margin-bottom: get-vw(8px);
+    }
+
+    @include tablet-small{
+        font-size: 14px;
+    }
+    p{
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0;
+        @include vw{
+            font-size: get-vw(14px);
+        }
+    }
+}
+.form-input{
+    border-radius: 4px;
+    padding: 8px 24px;
+    border: 1px solid $grey-color4;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    height: 45px;
+    @include themed() {
+        color: t($text);
+    }
+
+    &::placeholder{
+        opacity: 1;
+        @include themed() {
+            color: t($text);
+        }
+    }
+    &:focus-visible,&:focus,&:focus-within{
+        outline: 0;
+        @include themed() {
+            border-color: t($text-secondary);
+        }
+    }
+
+    @include vw{
+        border-radius: get-vw(4px);
+        padding: get-vw(8px) get-vw(24px);
+        font-size: get-vw(14px);
+        height: get-vw(45px);
+    }
+
+    @include tablet-small{
+        font-size: 14px;
+    }
+}
+
+/*---===[ Radio Buttons & Checkbox ]===---*/
+.field-set{
+    > label{
+        font-size: 16px;
+        line-height: 1.375;
+        font-weight: 700;
+        margin-bottom: 14px;
+        @include vw{
+            font-size: get-vw(16px);
+            margin-bottom: get-vw(14px);
+        }
+        @include themed() {
+            color: t($text);
+        }
+        .mendatory{
+            color: $error-color;
+        }
+    }
+}
+input{
+    &[type="checkbox"]{
+        opacity: 0;
+        position: absolute;
+
+        & + label{
+            position: relative;
+            padding-left: 40px;
+            font-size: 16px;
+            line-height: 1.375;
+            font-weight: 400;
+            @include themed() {
+                color: t($text);
+            }
+            @include vw{
+                padding-left: get-vw(40px);
+                font-size: get-vw(16px);
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                border-radius: 4px;
+                left: 0;
+                @include themed() {
+                border: 2px solid t($text);
+                }
+
+                @include vw{
+                    width: get-vw(24px);
+                    height: get-vw(24px);
+                    border-radius: get-vw(4px);
+                }
+            }
+        }
+        &:checked{
+            & + label{
+                &::before{
+                    background-color: $primary-color;
+                    border-color: $primary-color;
+                }
+                &::after{
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12' fill='white'%3E%3Cpath d='M5.68493 11.2C5.44493 11.2 5.22491 11.12 5.04491 10.94L1.06493 6.95997C0.704932 6.59997 0.704932 6.03998 1.06493 5.67998C1.42493 5.31998 1.98491 5.31998 2.34491 5.67998L5.70492 9.01997L13.6849 1.05998C14.0449 0.699976 14.6049 0.699976 14.9649 1.05998C15.3249 1.41998 15.3249 1.97998 14.9649 2.33998L6.34491 10.94C6.14491 11.12 5.92493 11.2 5.68493 11.2Z'/%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    content: "";
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    left: 0;
+                    @include vw{
+                        width: get-vw(24px);
+                        height: get-vw(24px);
+                    }
+                }
+            }
+        }
+    }
+    &[type="radio"]{
+        opacity: 0;
+        position: absolute;
+
+        & + label{
+            position: relative;
+            padding-left: 40px;
+            font-size: 16px;
+            line-height: 1.375;
+            font-weight: 700;
+            @include themed() {
+                color: t($text);
+            }
+            @include vw{
+                padding-left: get-vw(40px);
+                font-size: get-vw(16px);
+            }
+            @include mobile{
+                padding-left: 25px;
+                font-size: 12px;
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                left: 0;
+                @include themed() {
+                border: 2px solid t($text);
+                }
+
+                @include vw{
+                    width: get-vw(24px);
+                    height: get-vw(24px);
+                }
+
+                @include mobile{
+                    width: 16px;
+                    height: 16px;
+                    @include themed() {
+                        border: 1px solid t($text);
+                    }
+                }
+            }
+        }
+        &:checked{
+            & + label{
+                &::before{
+                    border-color: $primary-color;
+                }
+                &::after{
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: $primary-color;
+                    content: "";
+                    position: absolute;
+                    left: 6px;
+                    top:6px;
+
+                    @include vw{
+                        width: get-vw(12px);
+                        height: get-vw(12px);
+                        left: get-vw(6px);
+                        top: get-vw(6px);
+                    }
+
+                    @include mobile{
+                        width: 8px;
+                        height: 8px;
+                        top: 4px;
+                        left: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+.verification-code--inputs input[type=text] {
+    border: 1px solid #BDBDBD;
+    width: 72px;
+    height: 66px;
+    margin: 0 6px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+  box-sizing:border-box;
+  @include vw{
+    width: get-vw(72px);
+    height: get-vw(66px);
+    margin: 0 get-vw(6px);
+    border-radius: get-vw(4px);
+  }
+}
+
+/*---===[ Toggle Switch ]===---*/
+.switch-box{
+    position: relative;
+    width: 86px;
+    height: 40px;
+    border-radius: 50px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.15) inset;
+    border: 1px solid #EDEDED;
+
+    @include vw{
+        width: get-vw(86px);
+        height: get-vw(40px);
+        border-radius: get-vw(50px);
+        box-shadow: 0 0 get-vw(5px) 0 rgba(0,0,0,0.15) inset;
+    }
+    input{
+        opacity: 0;
+        position: absolute;
+
+        + label{
+            width: 100%;
+            height: 100%;
+            @include display-flex(flex);
+            padding: 0;
+            cursor: pointer;
+            .switch-icon{
+                width: 50%;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+                @include display-flex(flex);
+                @include align-item(center);
+                @include justify-content(center);
+
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    @include vw{
+                        width: get-vw(20px);
+                        height: get-vw(20px);
+                    }
+                    path{
+                        fill: $black-color;
+                    }
+                }
+                &:first-child{
+                    svg{
+                        path{
+                            fill: $primary-color
+                        }
+                    }
+                }
+            }
+            &::after{
+                display: none;
+            }
+            &::before{
+                width: 37px;
+                height: 37px;
+                border-radius: 50%;
+                background-color: $black-color;
+                position: absolute;
+                left: 1px;
+                top: 0;
+                transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+                border: none !important;
+
+                @include vw{
+                    width: get-vw(37px);
+                    height: get-vw(37px);
+                    left: get-vw(1px);
+                }
+            }
+        }
+        &:checked{
+            + label{
+                .switch-icon{
+                    svg{
+                        path{
+                            fill: $primary-color;
+                        }
+                    }
+                    &:first-child{
+                        svg{
+                            path{
+                                fill: $black-color;
+                            }
+                        }
+                    }
+                }
+                &:before{
+                    left: calc(100% - 38px);
+                    background-color: $black-color;
+                    @include vw{
+                        left: calc(100% - #{get-vw(38px)});
+                    }
+                }
+            }
+        }
+    }
+    &--withLabel{
+        margin-left: 35px;
+        display: inline-block;
+        @include vw{
+            margin-left: get-vw(35px);
+        }
+        input{
+            & + label{
+                
+                .switch-icon{
+                    font-size: 15px;
+                    line-height: 1.2;
+                    font-weight: 500;
+                    position: absolute;
+                    left: -35px;
+                    width: 25px;
+                    @include justify-content(flex-start);
+                    @include vw{
+                        font-size: get-vw(15px);
+                        left: get-vw(-35px);
+                        width: get-vw(25px);
+                    }
+                    &.on{
+                        color: #27AE60;
+                        display: none;
+                    }
+                    &.off{
+                        @include themed(){
+                            color: t($text-secondary);
+                        }
+                    }
+                }
+            }
+            &:checked{
+                & + label{
+                    .switch-icon{
+                        &.on{
+                            display: block;
+                        }
+                        &.off{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &--small{
+        width: 40px;
+        height: 20px;
+        border-radius: 40px;
+        box-shadow: none;
+        background-color: #ECECEC;
+        border: 1px solid #DCDCDC;
+        @include vw{
+            width: get-vw(40px);
+            height: get-vw(20px);
+            border-radius: get-vw(40px);
+        }
+        input{
+            & + label{
+                &::before{
+                    width: 18px;
+                    height: 18px;
+                    left: 1px;
+                    background-color: $black-color !important;
+                    @include vw{
+                        width: get-vw(18px);
+                        height: get-vw(18px);
+                    }
+                }
+            }
+            &:checked{
+                & + label{
+                    &::before{
+                        left: calc(100% - 19px);
+                        background-color: #27AE60 !important;
+                        @include vw{
+                            left: calc(100% - #{get-vw(19px)});
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+.theme--dark{
+    .switch-box{
+        border: 1px solid #fff;
+        input{
+            + label{
+                .switch-icon{
+                    svg{
+                        path{
+                            fill: $white-color;
+                        }
+                    }
+                    &:first-child{
+                        svg{
+                            path{
+                                fill: $primary-color
+                            }
+                        }
+                    }
+                }
+                &::before{
+                    background-color: $white-color;
+                    
+                }
+            }
+            &:checked{
+                + label{
+                    .switch-icon{
+                        svg{
+                            path{
+                                fill: $primary-color;
+                            }
+                        }
+                        &:first-child{
+                            svg{
+                                path{
+                                    fill: $white-color;
+                                }
+                            }
+                        }
+                    }
+                    &:before{
+                        background-color: $white-color;
+                        
+                    }
+                }
+            }
+        }
+    
+    }
+}

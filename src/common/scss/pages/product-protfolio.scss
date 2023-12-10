@@ -1,0 +1,1691 @@
+@import "../main";
+.page-heading{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @include vw{
+        margin-top: get-vw(20px);
+        margin-bottom: get-vw(20px);
+    }
+    @include tablet-small{
+        @include flex-wrap(wrap);
+    }
+    h6{
+        font-size: 18px;
+        line-height: 1.2104;
+        font-weight: 700;
+        margin-bottom: 0;
+        @include themed(){
+            color: t($text-secondary);
+        }
+        @include vw{
+            font-size: get-vw(18px);
+        }
+        @include tablet-small{
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    }
+    .button{
+        @include tablet-small{
+            display: block;
+            margin: auto;
+        }
+    }
+}
+.protfolio-boxes{
+    .col-sm-3{
+        padding-left: 8px;
+        padding-right: 8px;
+        @include vw{
+            padding-left: get-vw(8px);
+            padding-right: get-vw(8px);
+        }
+    }
+    .col-sm{
+        @include tablet{
+            -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            margin-bottom: 30px;
+        }
+        @include mobile{
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 0;
+        }
+    }
+}
+.create-order-placeholder {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include vw{
+        padding-top: get-vw(20px);
+        padding-bottom: get-vw(20px);
+    }
+    .placeholder-image{
+        margin-bottom: 32px;
+        @include vw{
+            margin-bottom: get-vw(32px);
+        }
+        svg{
+            width: 250px;
+            height: 250px;
+            @include mobile{
+                width: 200px;
+                height: 200px;
+            }
+        }
+        .placeholder-label{
+            font-size: 16px;
+            @include vw{
+                font-size: get-vw(16px);
+            }
+            @include themed(){
+                color: t($text-secondary);
+            }
+        }
+    }
+    .placeholder-button{
+        .button{
+            padding: 10px;
+            font-size: 14px;
+        }
+    }
+}
+.create-product-protfolio,.create-post{
+    padding: 15px 70px 48px;
+    border-radius: 10px;
+    max-width: 1171px;
+    margin: 15px auto 0;
+    @include themed(){
+        background-color: t($card-bg);
+        box-shadow: 0px 16px 24px rgba(t($text-secondary), 0.06), 0px 2px 6px rgba(t($text-secondary), 0.04), 0px 0px 1px rgba(t($text-secondary), 0.04);
+    }
+    @include vw{
+        padding: get-vw(15px) get-vw(70px) get-vw(48px);
+        border-radius: get-vw(10px);
+        max-width: get-vw(1171px);
+        margin: get-vw(15px) auto 0;
+    }
+    @include tablet-small{
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .field-set{
+        .field-set-label{
+            @include display-flex(flex);
+            @include justify-content(space-between);
+            margin-bottom: 10px;
+            @include vw{
+                margin-bottom: get-vw(10px);
+            }
+            @include tablet-small{
+                @include flex-wrap(wrap);
+                margin-bottom: 10px;
+            }
+            .card-header{
+                padding: 0;
+                label{
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 1.2;
+                    margin-bottom: 0px;
+                    @include themed(){
+                        color: t($text-secondary);
+                    }
+                    @include vw{
+                        font-size: get-vw(16px);
+                    }
+                    @include tablet-small{
+                        font-size: 14px;
+                        margin-bottom: 10px;
+                    }
+                    .mendatory{
+                        color: #FF0000 !important;
+                        @include tablet-small{
+                            margin-bottom: 10px;
+                            display: block;
+                        }
+                    }
+                }
+                .mendatory{
+                    color: #FF0000 !important;
+                    @include tablet-small{
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+                }
+                @include tablet-small{
+                    @include flex-wrap(wrap);
+                }
+            }
+            & > label{
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.2;
+                margin-bottom: 0px;
+                @include themed(){
+                    color: t($text-secondary);
+                }
+                @include vw{
+                    font-size: get-vw(16px);
+                }
+                @include tablet-small{
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+                .mendatory{
+                    color: #FF0000 !important;
+                }
+            }
+            .info{
+                font-size: 15px;
+                line-height: 1.21;
+                @include themed(){
+                    color: rgba(t($text-secondary), 0.8);
+                }
+                @include vw{
+                    font-size: get-vw(15px);
+                }
+                @include tablet-small{
+                    font-size: 12px;
+                }
+            }
+        }
+        .form-field{
+            .file-upload{
+                position: relative;
+                margin: 0;
+                input[type="file"]{
+                    position: absolute;
+                    opacity: 0;
+                }
+                label{
+                    border-radius: 4px;
+                    padding: 12px 24px;
+                    border: 1px solid $grey-color4;
+                    background-color: transparent;
+                    display: block;
+                    width: 100%;
+                    font-size: 14px;
+                    height: 45px;
+                    @include themed() {
+                        color: t($text);
+                    }
+                    @include vw{
+                        border-radius: get-vw(4px);
+                        padding: get-vw(12px) get-vw(24px);
+                        font-size: get-vw(14px);
+                        height: get-vw(45px);
+                    }
+                
+                    @include tablet-small{
+                        font-size: 14px;
+                    }
+                    .icon{
+                        position: absolute;
+                        top: 18px;
+                        right: 13px;
+                        @include vw{
+                            top: get-vw(18px);
+                            right: get-vw(13px);
+                        }
+                        svg{
+                            width: 14px;
+                            height: 20px;
+                            @include vw{
+                                width: get-vw(14px);
+                                height: get-vw(20px);
+                            }
+                            path{
+                                @include themed(){
+                                    fill: t($text);
+                                }
+                            }
+                        }
+                    }
+                }
+                &.upload-prod-image{
+                    position: relative;
+                    text-align: center;
+                    label{
+                        padding: 0;
+                        height: auto;
+                        border: none;
+                        img{
+                            width: 153px;
+                            border-radius: 10px;
+                            height: 153px;
+                            object-fit: contain;
+                            @include themed(){
+                                border: 1px solid rgba(t($text-secondary), 0.24);
+                            }
+                            @include vw{
+                                width: get-vw(153px);
+                                height: get-vw(153px);
+                                border-radius: get-vw(10px);
+                            }
+                            @include tablet-small{
+                                height: 78px;
+                            }
+                            @include mobile{
+                                height: 153px;
+                            }
+                        }
+                        .image-type{
+                            margin-top: 16px;
+                            font-size: 18px;
+                            font-weight: 500;
+                            @include themed(){
+                                color: t($text-secondary);
+                            }
+                            @include vw{
+                                margin-top: get-vw(16px);
+                                font-size: get-vw(18px);
+                            }
+                            @include tablet-small{
+                                font-size: 14px;
+                                margin-top: 10px;
+                            }
+                        }
+                        .cancel-button{
+                            position: absolute;
+                            right: -13px;
+                            top: -13px;
+                            border: none;
+                            background-color: transparent;
+                            padding: 0;
+                            @include vw{
+                                right: get-vw(-13px);
+                                top:get-vw(-13px)
+                            }
+                            img{
+                                width: 26px;
+                                height: 26px;
+                                @include vw{
+                                    width: get-vw(26px);
+                                    height: get-vw(26px);
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .form-button{
+        margin-top: 30px;
+        @include vw{
+            margin-top: get-vw(30px);
+        }
+        .button{
+            width: auto;
+        }
+    }
+}
+.protfolio-boxes{
+    margin-bottom: 15px;
+    margin-left: -8px;
+    margin-right: -8px;
+    @include vw{
+        margin-bottom: get-vw(15px);
+        margin-left: get-vw(-8px);
+        margin-right: get-vw(-8px);
+    }
+    .col-sm{
+        padding-left: 8px;
+        padding-right: 8px;
+        @include vw{
+            padding-left: get-vw(8px);
+            padding-right: get-vw(8px);
+        }
+        .button{
+            padding-left: 20px;
+            padding-right: 20px;
+            @include vw{
+                padding-left: get-vw(20px);
+                padding-right: get-vw(20px);
+            }
+        }
+    }
+}
+.create-post{
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    @include vw{
+        padding-top: get-vw(20px);
+    }
+    @include tablet-small{
+        margin-top: 0;
+    }
+    .page-heading{
+        margin-top: 0;
+        padding-bottom: 20px;
+        padding-left: 45px;
+        padding-right: 45px;
+        @include vw{
+            padding-bottom: get-vw(20px);
+            padding-left: get-vw(45px);
+            padding-right: get-vw(45px);
+        }
+        @include tablet-small{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        @include themed(){
+            border-bottom: 1px solid t($border);
+        }
+        h6{
+            @include tablet-small{
+                margin-bottom: 0;
+            }
+        }
+    }
+    form{
+        padding-left: 45px;
+        padding-right: 45px;
+        @include vw{
+            padding-left: get-vw(45px);
+            padding-right: get-vw(45px);
+        }
+        @include tablet-small{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+    .protfolio-boxes{
+        margin-bottom: 15px;
+        margin-left: -8px;
+        margin-right: -8px;
+        @include vw{
+            margin-bottom: get-vw(15px);
+            margin-left: get-vw(-8px);
+            margin-right: get-vw(-8px);
+        }
+        .col-sm{
+            padding-left: 8px;
+            padding-right: 8px;
+            @include vw{
+                padding-left: get-vw(8px);
+                padding-right: get-vw(8px);
+            }
+            .button{
+                padding-left: 20px;
+                padding-right: 20px;
+                @include vw{
+                    padding-left: get-vw(20px);
+                    padding-right: get-vw(20px);
+                }
+            }
+        }
+    }
+    .field-set{
+        .form-field{
+            .file-upload{
+                label{
+                    .icon{
+                        top: 12px;
+                        @include vw{
+                            top: get-vw(12px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*.collapse-button{
+        width: 18px;
+        height: 18px;
+        background-color: $primary-color;
+       @include display-flex(inline-flex);
+       @include align-item(center);
+       @include justify-content(center);
+       vertical-align: middle;
+        margin-left: 13px;
+        border-radius: 50%;
+        @include vw{
+            width: get-vw(18px);
+            height: get-vw(18px);
+            margin-left: get-vw(13px);
+        }
+        svg{
+            width: 9px;
+            height: 5px;
+            @include vw{
+                width: get-vw(9px);
+                height: get-vw(5px);
+            }
+            path{
+                fill: #fff;
+            }
+        }
+    }*/
+    .form-button{
+        .button{
+            @include mobile{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+.sidebar{
+    margin-top: 24px;
+    @include vw{
+        margin-top: get-vw(24px);
+    }
+    .sidebar-title{
+        margin-bottom: 20px;
+        @include vw{
+            margin-bottom: get-vw(20px);
+        }
+        h6{
+            margin-bottom: 0;
+            font-size: 16px;
+            @include themed(){
+                color: t($text-secondary);
+            }
+            @include vw{
+                font-size: get-vw(16px);
+            }
+        }
+        .collapse-button{
+            width: 18px;
+            height: 18px;
+            background-color: $primary-color;
+           @include display-flex(inline-flex);
+           @include align-item(center);
+           @include justify-content(center);
+           vertical-align: middle;
+            margin-left: 13px;
+            border-radius: 50%;
+            @include vw{
+                width: get-vw(18px);
+                height: get-vw(18px);
+                margin-left: get-vw(13px);
+            }
+            svg{
+                width: 9px;
+                height: 5px;
+                @include vw{
+                    width: get-vw(9px);
+                    height: get-vw(5px);
+                }
+                path{
+                    fill: #fff;
+                }
+            }
+        }
+    }
+    .slick-list{
+        padding-bottom: 25px;
+        @include vw{
+            padding-bottom: 24px;
+        }
+    }
+    .slick-track{
+        @include display-flex(flex);
+        .slick-slide{
+            height: auto;
+            & > div,.category,.form-field,label{
+                height: 100%;
+            }
+        }
+    }
+    .slick-track{
+        margin-left: 0;
+    }
+    .slick-arrow{
+        position: absolute;
+        right: 0;
+        top: -16px;
+        width: 30px;
+        height: 30px;
+        @include themed(){
+            background-color: t($card-bg);
+        }
+        border-radius: 50%;
+        box-shadow: 0px 3.29944px 49.4915px rgba(41, 44, 124, 0.15);
+        @include translate(0 , -100%);
+        @include vw{
+            width: get-vw(30px);
+            height: get-vw(30px);
+            top:get-vw(-16px);
+        }
+        @include mobile{
+            width: 30px;
+            height: 30px;
+        }
+        
+        &.slick-next{
+            &::before{
+                display: block;
+                margin: auto;
+                content: "";
+                width: 9px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23000000'%3E%3Cpath d='M1.6543 2.12354L7.13355 7.60279L1.6543 13.0821' stroke-width='3.29944'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% auto;
+                @include vw{
+                    width: get-vw(9px);
+                    height: get-vw(15px);
+                }
+            }
+            &:hover{
+                &::before{
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23FEBD17'%3E%3Cpath d='M1.6543 2.12354L7.13355 7.60279L1.6543 13.0821' stroke-width='3.29944'/%3E%3C/svg%3E");
+                }
+            }
+        }
+        &.slick-prev{
+            left: auto;
+            right: 55px;
+            @include vw{
+                right: get-vw(55px);
+            }
+            @include mobile{
+                right: 40px;
+            }
+            &::before{
+                display: block;
+                margin: auto;
+                content: "";
+                width: 9px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23000000'%3E%3Cpath d='M8.3418 13.0815L2.86254 7.60229L8.3418 2.12303' stroke-width='3.29944'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% auto;
+                @include vw{
+                    width: get-vw(9px);
+                    height: get-vw(15px);
+                }
+            }
+            &:hover{
+                &::before{
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23FEBD17'%3E%3Cpath d='M8.3418 13.0815L2.86254 7.60229L8.3418 2.12303' stroke-width='3.29944'/%3E%3C/svg%3E");    
+                }
+            }
+        }
+    }
+    .categories{
+        margin: 0 -8px;
+        @include vw{
+            margin: 0 get-vw(-8px);
+        }
+    }
+    .category{
+        .form-field{
+            margin-bottom: 0;
+            padding: 0 8px;
+            @include vw{
+                padding: 0 get-vw(8px);
+            }
+            label{
+                padding-left: 0;
+                @include display-flex(flex);
+                border-radius: 10px;
+                overflow: hidden;
+                margin-bottom: 0;
+                @include themed(){
+                    background-color: t($card-bg);
+                    border: 1px solid rgba(t($text-secondary), 0.06);
+                    box-shadow: 0px 16px 24px rgba(t($text-secondary), 0.06), 0px 2px 6px rgba(t($text-secondary), 0.04), 0px 0px 1px rgba(t($text-secondary), 0.04);
+                }
+                @include vw{
+                    border-radius: get-vw(10px);
+                }
+                &::before,&::after{
+                    display: none;
+                }
+                .category-img{
+                    width: 55px;
+                    min-height: 55px;
+                    height: 100%;
+                    background-color: #D8E9F2;
+                    @include display-flex(flex);
+                    @include align-item(center);
+                    @include justify-content(center);
+                    @include vw{
+                        width: get-vw(55px);
+                        min-height: get-vw(55px);
+                    }
+                    @include mobile{
+                        width: 50px;
+                        min-height: 50px;
+                    }
+                    img{
+                        width: 38px;
+                        height: 38px;
+                        @include vw{
+                            width: get-vw(38px);
+                            height: get-vw(38px);
+                        }
+                        @include mobile{
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+                }
+                .category-name{
+                    padding: 10px 10px;
+                    text-align: center;
+                    @include display-flex(flex);
+                    @include align-item(center);
+                    @include justify-content(center);
+                    width: calc(100% - 77px);
+                    @include vw{
+                        width: calc(100% - #{get-vw(77px)});
+                        padding: get-vw(10px) get-vw(10px);
+                    }
+                    @include mobile{
+                        width: calc(100% - 50px);
+                        padding: 8px 5px;
+                    }
+                    h6{
+                        margin-bottom: 0;
+                        font-size: 14px;
+                        font-weight: 500;
+                        @include themed(){
+                            color: t($text-secondary);
+                        }
+                        @include vw{
+                            font-size: get-vw(14px);
+                        }
+                        @include mobile{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+            input{
+                &:checked{
+                    & + label{
+                        background-color: $primary-color !important;
+                        border-color: $primary-color !important;
+                        .category-img{
+                            @include themed(){
+                                background-color: t($card-bg);
+                            }
+                        }
+                        .category-name{
+                            h6{
+                                color: $black-color !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+.product{
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    @include themed(){
+        background-color: t($card-bg);
+    }
+    @include vw{
+        padding: get-vw(10px);
+        border-radius: get-vw(10px);
+        margin-bottom: get-vw(25px);
+    }
+    .product-image{
+        position: relative;
+    }
+    .main-image{
+        .image-block{
+            border-radius: 10px;
+            overflow: hidden;
+           
+            @include vw{
+                border-radius: get-vw(10px);
+            }
+            img{
+                border-radius: 10px;
+                width: 100%;
+                object-fit: cover;
+                transition: all 0.2s linear;
+                @include vw{
+                    border-radius: get-vw(10px);
+                }
+            }
+        }
+        .action{
+            position: absolute;
+            top: 7px;
+            right: 8px;
+            
+            border-radius: 8px;
+            padding: 8px 10px;
+            @include themed(){
+                background-color: t($tag-bg);
+            }
+            @include vw{
+                top: get-vw(7px);
+                right: get-vw(8px);
+                border-radius: get-vw(8px);
+                padding: get-vw(8px) get-vw(10px);
+            }
+            button{
+                padding: 0;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                svg{
+                    width: 12px;
+                    height: 12px;
+                    @include vw{
+                        width: get-vw(12px);
+                        height: get-vw(12px);
+                    }
+                    path{
+                        fill: #19ACDA;
+                    }
+                }
+                &.delete-button{
+                    margin-left: 15px;
+                    @include vw{
+                        margin-left: get-vw(15px);
+                    }
+                }
+                &:hover{
+                    svg{
+                        path{
+                            fill: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .product-thumb{
+        position: absolute;
+        width: 100%;
+        bottom: 16px;
+        @include vw{
+            bottom: get-vw(16px);
+        }
+        .slick-track{
+            margin-left: 0;
+        }
+        .image-block{
+            padding: 0 10px;
+            border-radius: 10px;
+            overflow: hidden;
+           
+            @include vw{
+                padding: 0 get-vw(10px);
+                border-radius: get-vw(10px);
+            }
+            img{
+                border-radius: 10px;
+                border: 1px solid transparent;
+                height: 52px;
+                object-fit: contain;
+                @include vw{
+                    border-radius: get-vw(10px);
+                    height: get-vw(52px);
+                    
+                }
+                @include tablet-small{
+                    height: 34px;
+                }
+                @include mobile{
+                    height: 80px;
+                }
+                @include themed(){
+                    background-color: t($card-bg);
+                }
+            }
+        }
+        .slick-current{
+            .image-block{
+                img{
+                    border-color: $primary-color;
+                }
+            }
+        }
+    }
+    .product-content{
+        padding: 15px 0 15px;
+        margin-top: 15px;
+        @include vw{
+            padding: get-vw(15px) 0 get-vw(15px);
+            margin-top: get-vw(15px);
+        }
+        @include themed(){
+            border-top: 1px solid t($border);
+        }
+        .product-title{
+            margin-bottom: 0px;
+            font-size: 16px;
+            line-height: 1.210357142857143;
+            font-weight: 500;
+            cursor: pointer;
+            @include themed(){
+                color: t($text-secondary);
+            }
+            @include vw{
+                font-size: get-vw(16px);
+            }
+        }
+        .product-body{
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                cursor: pointer;
+                li{
+                    display: inline-block;
+                    padding: 0 10px;
+                    font-size: 12px;
+                    line-height: 1.21;
+                    @include themed(){
+                        color: t($text-secondary);
+                        border-right: 1px solid t($text-secondary);
+                    }
+                    @include vw{
+                        font-size: get-vw(12px);
+                        padding: 0 get-vw(10px);
+                    }
+                    &:first-child{
+                        padding-left: 0;
+                    }
+                    &:last-child{
+                        padding-right: 0;
+                        @include themed(){
+                            border-right: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &:hover{
+        .main-image{
+            img{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+.productGrid{
+    .main-image{
+        cursor: pointer;
+    }
+}
+.content-main{
+    .breadcrumb{
+        margin-bottom: 35px;
+        overflow: auto;
+        display: block;
+        white-space: nowrap;
+        @include vw{
+            margin-bottom: get-vw(35px);
+        }
+        .breadcrumb-item{
+            font-size: 16px;
+            display: inline-block;
+            @include vw{
+                font-size: get-vw(16px);
+            }
+            @include mobile{
+                font-size: 12px;
+            }
+            @include themed(){
+                color: rgba(t($text-secondary), 1);
+            }
+            &::before{
+                width: 5px;
+                height: 10px;
+                @include vw{
+                    width: get-vw(5px);
+                    height: get-vw(10px);
+                }
+            }
+        }
+    }
+}
+.modal-small,.price-hide-modal{
+    .modal-header{
+        .close{
+            svg{
+                width: 20px;
+                height: 20px;
+                @include vw{
+                    width: get-vw(20px);
+                    height: get-vw(20px);
+                }
+                path{
+                    @include themed(){
+                        fill: t($text);
+                    }
+                }
+            }
+        }
+    }
+}
+.product-catelogue-modal{
+    .upload-lists{
+        &--item{
+            padding-right: 92px;
+            @include vw{
+                padding-right: get-vw(92px);
+            }
+            @include mobile{
+                padding-right: 20px;
+            }
+            .content{
+                .delete-button{
+                    position: absolute;
+                right: 20px;
+                top: 10px;
+                width: 36px;
+                height: 36px;
+                border-radius: 5px;
+                background-color: $primary-color;
+                border: none;
+                padding: 0;
+                @include vw{
+                    right: get-vw(20px);
+                    top: get-vw(10px);
+                    width: get-vw(36px);
+                    height: get-vw(36px);
+                    border-radius: get-vw(5px);
+                }
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    @include vw{
+                        width: get-vw(20px);
+                        height: get-vw(20px);
+                    }
+                    path{
+                        fill: $white-color;
+                    }
+                }
+                }
+                .edit-button{
+                    right: 66px;
+                    @include vw{
+                        right: get-vw(66px);
+                    }
+                }
+            }
+        }
+    }
+}
+.price-hide-form{
+    .search-box{
+        position: relative;
+        .search-button{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            cursor: pointer;
+            @include vw{
+                top: get-vw(10px);
+                right: get-vw(10px);
+            }
+            &:focus{
+                outline: 0;
+            }
+            svg{
+                width: 20px;
+                height: 20px;
+                @include vw{
+                    width: get-ve(20px);
+                    height: get-ve(20px);
+                }
+            }
+        }
+    }
+}
+.user-list{
+    margin-top: 20px;
+    @include vw{
+        margin-top: get-vw(20px);
+    }
+    .user-item{
+        position: relative;
+        input[type="checkbox"]{
+            opacity: 0;
+            position: absolute;
+            + label{
+                @include display-flex(flex);
+                @include align-item(center);
+                position: relative;
+                padding: 0;
+                margin-bottom: 15px;
+                @include vw{
+                    margin-bottom: get-vw(15px);
+                }
+                &::after,&::before{
+                    display: none;
+                }
+                .profile-image{
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 16px;
+                    @include vw{
+                        width: get-ve(60px);
+                        height: get-ve(60px);
+                        margin-right: get-vw(16px);
+                    }
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 5px;
+                        @include vw{
+                            border-radius: get-vw(5px);
+                        }
+                    }
+                }
+                .profile-content{
+                    width: calc(100% - 76px);
+                    @include vw{
+                        width: calc(100% - #{get-vw(76px)});
+                    }
+                    h6{
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin-bottom: 8px;
+                        width: 100%;
+                        @include themed(){
+                            color: t($text-secondary);
+                        }
+                        @include vw{
+                            font-size: get-vw(16px);
+                            margin-bottom: get-vw(8px);
+                        }
+                    }
+                    p{
+                        font-size: 12px;
+                        margin-bottom: 0;
+                        @include themed(){
+                            color: rgba(t($text-secondary), 0.5);
+                        }
+                        @include vw{
+                            font-size: get-vw(12px);
+                        }
+                    }
+                    
+                }
+                .checkmark{
+                    position: absolute;
+                    top: 16px;
+                    right: 0;
+                    @include vw{
+                        top: get-vw(16px);
+                    }
+                    svg{
+                        width: 24px;
+                        height: 24px;
+                        @include vw{
+                            width: get-ve(24px);
+                            height: get-ve(24px);
+                        }
+                    }
+                }
+            }
+            &:checked{
+                + label{
+                    .checkmark{
+                        svg{
+                            path{
+                                fill: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.productView{
+    padding-bottom: 86px;
+    @include vw{
+        padding-bottom: get-vw(86px);
+    }
+    @include mobile{
+        padding-bottom: 20px;
+    }
+    &-image{
+        .product{
+            padding: 0;
+            background-color: transparent;
+            .main-image{
+                img{
+                    height: 400px;
+                    object-fit: contain;
+                    @include themed(){
+                        background-color: t($card-bg);
+                    }
+                    @include vw{
+                        height: get-vw(400px);
+                    }
+                    @include tablet{
+                        height: 288px;
+                    }
+                    @include tablet-small{
+                        height: 216px;
+                    }
+                    @include mobile{
+                        height: 300px;
+                    }
+                    
+                }
+                .slick-arrow{
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    width: 30px;
+                    height: 30px;
+                    background-color: #F4F4F4;
+                    border-radius: 50%;
+                    z-index: 1;
+                    opacity: 0;
+                    @include translate(0 , -100%);
+                    @include vw{
+                        width: get-vw(30px);
+                        height: get-vw(30px);
+                    }
+                    
+                    &.slick-next{
+                        &::before{
+                            display: block;
+                            margin: auto;
+                            content: "";
+                            width: 9px;
+                            height: 15px;
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23000000'%3E%3Cpath d='M1.6543 2.12354L7.13355 7.60279L1.6543 13.0821' stroke-width='3.29944'/%3E%3C/svg%3E");
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: 100% auto;
+                            @include vw{
+                                width: get-vw(9px);
+                                height: get-vw(15px);
+                            }
+                        }
+                        &:hover{
+                            &::before{
+                                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23FEBD17'%3E%3Cpath d='M1.6543 2.12354L7.13355 7.60279L1.6543 13.0821' stroke-width='3.29944'/%3E%3C/svg%3E");
+                            }
+                        }
+                    }
+                    &.slick-prev{
+                        left: 0;
+                        &::before{
+                            display: block;
+                            margin: auto;
+                            content: "";
+                            width: 9px;
+                            height: 15px;
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23000000'%3E%3Cpath d='M8.3418 13.0815L2.86254 7.60229L8.3418 2.12303' stroke-width='3.29944'/%3E%3C/svg%3E");
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: 100% auto;
+                            @include vw{
+                                width: get-vw(9px);
+                                height: get-vw(15px);
+                            }
+                        }
+                        &:hover{
+                            &::before{
+                                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='15' viewBox='0 0 10 15' fill='none' stroke='%23FEBD17'%3E%3Cpath d='M8.3418 13.0815L2.86254 7.60229L8.3418 2.12303' stroke-width='3.29944'/%3E%3C/svg%3E");    
+                            }
+                        }
+                    }
+                }
+                &:hover{
+                    .slick-arrow{
+                        opacity: 1;
+                    }
+                }
+            }
+            &-thumb{
+                position: static;
+                margin-top: 20px;
+                @include vw{
+                    margin-top: get-vw(20px);
+                }
+                img{
+                    height: 48px;
+                    object-fit: contain;
+                    @include themed(){
+                        background-color: t($card-bg);
+                    }
+                    @include vw{
+                        height: get-vw(48px);
+                    }
+                }
+            }
+        }
+    }
+    &-detail{
+        @include themed(){
+            color: t($text-secondary);
+        }
+        .product-title{
+            font-size: 28px;
+            line-height: 1.21;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: inherit;
+            @include vw{
+                font-size: get-vw(28px);
+                margin-bottom: get-vw(20px);
+            }
+            @include mobile{
+                font-size: 18px;
+            }
+        }
+        h6{
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            @include vw{
+                font-size: get-vw(16px);
+                margin-bottom: get-vw(12px);
+            }
+            @include mobile{
+                font-size: 14px;
+            }
+        }
+        p{
+            font-weight: normal;
+        }
+        dl{
+            clear: both;
+            float: left;
+            width: 100%;
+            margin-bottom: 0;
+            dt,dd{
+                float: left;
+            }
+            dt{
+                clear: left;
+                margin-right: 8px;
+                font-weight: normal;
+                @include vw{
+                    margin-right: get-vw(8px);
+                }
+            }
+            dd{
+                clear: right;
+            }
+        }
+        .product-certification{
+            @include display-flex(flex);
+            @include mobile{
+                @include flex-wrap(wrap);
+            }
+            a{
+                margin-left: 15px;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+                @include themed(){
+                    color: t($text-secondary);
+                }
+                @include vw{
+                    margin-left: get-vw(15px);
+                    font-size: get-vw(16px);
+                }
+                @include mobile{
+                    margin-left: 0;
+                }
+                svg{
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 15px;
+                    vertical-align: middle;
+                    @include vw{
+                        width: get-vw(24px);
+                        height: get-vw(24px);
+                        margin-right: get-vw(15px);
+                    }
+                    path{
+                        @include themed(){
+                            fill: t($text-secondary);
+                        }
+                    }
+                }
+                &:hover{
+                    color: $primary-color !important;
+                    svg{
+                        path{
+                            fill: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+        .credit-policy{
+            max-width: 590px;
+            @include vw{
+                max-width: get-vw(590px);
+            }
+            .row{
+                margin-left: -8px;
+                margin-right: -8px;
+                @include vw{
+                    margin-left: get-vw(-8px);
+                    margin-right: get-vw(-8px);
+                }
+            }
+            .col-sm-6{
+                padding-left: 8px;
+                padding-right: 8px;
+                @include vw{
+                    padding-left: get-vw(8px);
+                    padding-right: get-vw(8px);
+                }
+            }
+            &-link{
+                float: right;
+                font-size: 16px;
+                font-weight: 500;
+                margin-top: 12px;
+                @include themed(){
+                    color: t($text-secondary);
+                }
+                @include vw{
+                    margin-left: get-vw(15px);
+                    font-size: get-vw(16px);
+                    margin-top: get-vw(12px);
+                }
+                @include mobile{
+                    font-size: 14px;
+                }
+                svg{
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 4px;
+                    vertical-align: middle;
+                    @include vw{
+                        width: get-vw(24px);
+                        height: get-vw(24px);
+                        margin-right: get-vw(4px);
+                    }
+                    path{
+                        @include themed(){
+                            fill: t($text-secondary);
+                        }
+                    }
+                }
+                &:hover{
+                    color: $primary-color !important;
+                    svg{
+                        path{
+                            fill: $primary-color;
+                        }
+                    }
+                }
+            }
+            &-box{
+                border-radius: 10px;
+                padding: 10px;
+                @include vw{
+                    border-radius: get-vw(10px);
+                    padding: get-vw(10px);
+                }
+                @include mobile{
+                    margin-bottom: 20px;
+                }
+                @include themed(){
+                    border: 1px solid t($border);
+                }
+                p{
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin-top: 10px;
+                    margin-bottom: 0;
+                    text-align: center;
+                    @include vw{
+                        font-size: get-vw(12px);
+                        margin-top: get-vw(10px);
+                    }
+                }
+                .counter{
+                    @include display-flex(flex);
+                    @include justify-content(space-between);
+                    @include align-item(center);
+                    @include tablet-small{
+                        @include flex-wrap(wrap);
+                        @include justify-content(center);
+                        text-align: center;
+                    }
+                }
+                .counter-text{
+                    font-size: 16px;
+                    font-weight: 600;
+                    @include vw{
+                        font-size: get-vw(16px);
+                    }
+                    @include tablet-small{
+                        font-size: 14px;
+                        width: 100%;
+                        margin-bottom: 10px;
+                    }
+                    span{
+                        font-weight: 700;
+                        margin-left: 8px;
+                        @include vw{
+                            margin-left: get-vw(8px);
+                        }
+                    }
+                }
+                .increment{
+                    width: 90px;
+                    @include vw{
+                        width: get-vw(90px);
+                    }
+                    .form-control{
+                        width: 30px;
+                        padding: 0;
+                        border: none;
+                        text-align: center;
+                        font-weight: 500;
+                        @include themed(){
+                            background-color: t($card-bg);
+                            color: t($text-secondary);
+                        }
+                        @include vw{
+                            width: get-vw(30px);
+                        }
+                    }
+                    .btn{
+                        padding: 0;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 28px;
+                        color: $primary-color;
+                        @include themed(){
+                            border: 1px solid t($text-secondary);
+                        }
+                        @include vw{
+                            width: get-vw(30px);
+                            height: get-vw(30px);
+                            font-size: get-vw(20px);
+                            line-height: get-vw(28px);
+                        }
+                        &:hover{
+                            @include themed(){
+                                background-color:  t($text-secondary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-button{
+        float: left;
+        clear: both;
+        @include mobile{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .button{
+            @include mobile{
+                padding: 6px 9px;
+            }
+        }
+    }
+    &-price{
+        margin-bottom: 20px;
+        @include vw{
+            margin-bottom: get-vw(20px);
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li{
+                display: inline-block;
+                padding: 0 10px;
+                font-size: 16px;
+                line-height: 1.21;
+                @include themed(){
+                    color: t($text-secondary);
+                    border-right: 1px solid t($text-secondary);
+                }
+                @include vw{
+                    font-size: get-vw(16px);
+                    padding: 0 get-vw(10px);
+                }
+                &:first-child{
+                    padding-left: 0;
+                }
+                &:last-child{
+                    padding-right: 0;
+                    @include themed(){
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+    &-bottom{
+        background-color: rgb(237 243 246);
+        padding: 20px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        z-index: 9999;
+        @include vw{
+            padding: get-vw(20px) 0;
+        }
+        @include mobile{
+            position: static;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li{
+                display: inline-block;
+                padding: 0 30px;
+                font-size: 18px;
+                line-height: 1.21;
+                font-weight: 500;
+                color: $black-color;
+                border-right: 1px solid $black-color;
+                a{
+                    color: inherit;
+                }
+                @include vw{
+                    font-size: get-vw(18px);
+                    padding: 0 get-vw(30px);
+                }
+                @include tablet-small{
+                    display: block;
+                    text-align: center;
+                    border-right: none !important;
+                    padding: 10px 0;
+                    font-size: 12px;
+                }
+                strong{
+                    font-weight: 500;
+                }
+                &:first-child{
+                    padding-left: 0;
+                }
+                &:last-child{
+                    padding-right: 0;
+                    @include themed(){
+                        border-right: none;
+                    }
+                }
+                .heighlight{
+                    color: $button-blue;
+                }
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 20px;
+                    vertical-align: middle;
+                    @include vw{
+                        width: get-vw(20px);
+                        height: get-vw(20px);
+                        margin-left: get-vw(20px);
+                    }
+                }
+            }
+        }
+    }
+}
+.credit-policy-modal{
+    h6{
+        margin-bottom: 0;
+    }
+    .modal-header{
+        .close{
+            svg{
+                width: 20px;
+                height: 20px;
+                @include vw{
+                    width: get-vw(20px);
+                    height: get-vw(20px);
+                }
+                path{
+                    @include themed(){
+                        fill: t($text);
+                    }
+                }
+            }
+        }
+    }
+    .modal-dialog {
+        max-width: 500px;
+        @include vw{
+            max-width: get-vw(500px);
+        }
+    }
+    .modal-content{
+        @include themed(){
+            background-color: t($card-bg);
+            color: t($text);
+        }
+    }
+}

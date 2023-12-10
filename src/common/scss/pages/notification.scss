@@ -1,0 +1,113 @@
+@import "../main";
+
+.notification{
+    .card-header{
+        @include themed(){
+            border-bottom: 1px solid t($border);
+        }
+    }
+    .card-body{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    &-item{
+        @include display-flex(flex);
+        @include align-item(center);
+        padding: 20px 0;
+        @include vw{
+            padding: get-vw(20px) 0;
+        }
+        @include themed(){
+            border-bottom: 1px solid t($border);
+        }
+        .icon{
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            @include display-flex(flex);
+            @include align-item(center);
+            @include justify-content(center);
+            margin-right: 16px;
+            @include vw{
+                width: get-vw(50px);
+                height: get-vw(50px);
+                border-radius: get-vw(5px);
+                margin-right: get-vw(16px);
+            }
+            svg{
+                width: 22px;
+                height: 22px;
+                @include vw{
+                    width: get-vw(22px);
+                    height: get-vw(22px);
+                } 
+            }
+            &.light-orange{
+                background-color: #FFF7E9;
+            }
+            &.light-green{
+                background-color: #EEFFF0;
+            }
+            &.light-blue{
+                background-color: #EEFAFF;
+            }
+        }
+        &:last-child{
+            @include themed(){
+                border-bottom: none;
+            }
+        }
+    }
+    &-title{
+        h6{
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0;
+            @include vw{
+                font-size: get-vw(16px);
+            }
+        }
+        p{
+            margin-bottom: 0;
+            margin-top: 6px;
+            font-size: 12px;
+            @include vw{
+                margin-top: get-vw(6px);
+                font-size: get-vw(12px);
+            }
+            @include themed(){
+                color: rgba(t($text-secondary),0.5);
+            }
+        }
+    }
+    &-right{
+        margin-left: auto;
+        .tag{
+            font-size: 12px;
+            padding: 5px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            height: 24px;
+            display: inline-block;
+            @include vw{
+                font-size: get-vw(12px);
+                padding: get-vw(5px) get-vw(12px);
+                border-radius: get-vw(8px);
+                margin-bottom: get-vw(8px);
+                height: get-vw(24px);
+            }
+            @include themed{
+                background-color: t($tag-bg);
+            }
+        }
+        .time{
+            font-size: 12px;
+            @include vw{
+                font-size: get-vw(12px);
+            }
+            @include themed(){
+                color: rgba(t($text-secondary),0.5);
+            }
+        }
+    }
+}

@@ -1,0 +1,790 @@
+@import "../main";
+
+.short-order{
+    &-head{
+        @include display-flex(flex);
+        @include align-item(center);
+        padding: 20px 0;
+        @include vw{
+            padding: get-vw(20px) 0;
+        }
+        @include mobile{
+            @include flex-wrap(wrap);
+            @include justify-content(center);
+        }
+        .page-title{
+            margin-top: 0;
+            @include mobile{
+                margin-bottom: 10px;
+            }
+        }
+        .order-filter{
+            @include display-flex(flex);
+            margin-left: auto;
+            @include mobile{
+                @include flex-wrap(wrap);
+                @include justify-content(center);
+            }
+            .search-box{
+                position: relative;
+                margin-left: 20px;
+                @include vw{
+                    margin-left: get-vw(20px);
+                }
+                @include tablet-small{
+                    width: 160px;
+                }
+                @include mobile{
+                    margin-left: 0;
+                    width: 100%;
+                }
+                .form-input{
+                    height: 32px;
+                    @include vw{
+                        height: get-vw(32px);
+                    }
+                }
+                .search-button{
+                    position: absolute;
+                    right: 12px;
+                    top: 6px;
+                    border: none;
+                    background-color: transparent;
+                    padding: 0;
+                    
+                    cursor: pointer;
+                    @include vw{
+                        top: get-vw(6px);
+                        right: get-vw(12px);
+                    }
+                    &:focus{
+                        outline: 0;
+                    }
+                    svg{
+                        width: 14px;
+                        height: 14px;
+                        @include vw{
+                            width: get-ve(14px);
+                            height: get-ve(14px);
+                        }
+                    }
+                }
+            }
+            .tabs{
+                @include mobile{
+                    margin-bottom: 15px;
+                }
+                li{
+                    @include mobile{
+                        border-right: none !important;
+                    }
+                    a{
+                        display: block;
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        font-size: 14px;
+                        @include vw{
+                            padding-top: get-vw(8px);
+                            padding-bottom: get-vw(8px);
+                            padding-left: get-vw(20px);
+                            padding-right: get-vw(20px);
+                            font-size: get-vw(14px);
+                        }
+                        @include tablet-small{
+                            padding-left: 10px;
+                            padding-right: 10px;
+                        }
+                        @include mobile{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .short{
+            margin-left: 60px;
+            @include vw{
+                margin-left: get-vw(60px);
+            }
+            @include tablet-small{
+                margin-left: 20px;
+            }
+            @include mobile{
+                margin-left: 0;
+                width:  100%;
+                margin-top: 15px;
+            }
+            .form-input{
+                height: 32px;
+                padding-top: 0;
+                padding-bottom: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 14px;
+                @include vw{
+                    height: get-vw(32px);
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    font-size: get-vw(14px);
+                }
+            }
+        }
+    }
+    .tabs{
+        &--transparent{
+            margin-bottom: 20px;
+            @include vw{
+                margin-bottom: get-vw(20px);
+            }
+            ul{
+                border-radius: 0;
+                overflow: visible;
+                @include themed(){
+                    border: none;
+                    border-bottom: 1px solid t($border);
+                }
+                @include mobile{
+                    white-space: nowrap;
+                    overflow: auto;
+                }
+                li{
+                    position: relative;
+                    @include themed(){
+                        border: none;
+                    }
+                    a{
+                        display: block;
+                        padding: 14px 20px;
+                        font-size: 14px;
+                        @include vw{
+                            padding: get-vw(14px) get-vw(20px);
+                            font-size: get-vw(14px);
+                        }
+                        @include themed(){
+                            color: t($text-secondary);
+                        }
+                        @include mobile{
+                            font-size: 12px;
+                            padding: 8px 10px;
+                        }
+                    }
+                    
+                    &.active,&:hover{
+                        &::after{
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 2px;
+                            left: 0;
+                            bottom: -1px;
+                            background-color: $primary-color;
+                            z-index: 1;
+                        }
+                        a{
+                            text-decoration: none;
+                            @include themed(){
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    .orders{
+        padding-bottom: 20px;
+        @include vw{
+            padding-bottom: get-vw(20px);
+        }
+        .order-item{
+            @include flex-wrap(wrap);
+            @include align-item(flex-start);
+            box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+            @include themed(){
+                background-color: t($card-bg);
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+            &-footer{
+                width: 100%;
+                margin-top: 15px;
+                padding-top: 15px;
+                @include themed(){
+                    border-top: 1px solid t($border);
+                }
+                @include vw{
+                    margin-top: get-vw(15px);
+                    padding-top: get-vw(15px);
+                }
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    li{
+                        display: inline-block;
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin-right: 20px;
+                        @include vw{
+                            font-size: get-vw(16px);
+                            margin-right: get-vw(20px);
+                        }
+                        @include tablet-small{
+                            display: block;
+                            font-size: 14px;
+                            margin-right: 0;
+                            margin-bottom: 10px;
+                        }
+                        svg{
+                            width: 12px;
+                            height: 12px;
+                            vertical-align: middle;
+                            @include vw{
+                                width: get-vw(12px);
+                                height: get-vw(12px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .content-block{
+            @include display-flex(flex);
+            @include justify-content(space-between);
+            @include tablet-small{
+                @include flex-wrap(wrap);
+            }
+            .right{
+                text-align: center;
+                @include display-flex(flex);
+                @include align-item(flex-end);
+                @include flex-direction(column);
+                @include tablet-small{
+                    @include flex-direction(row);
+                    @include flex-wrap(wrap);
+                    margin-top: 20px;
+                }
+                @include mobile{
+                    width: 100%;
+                    @include align-item(center);
+                    @include flex-direction(column);
+                    margin-top: 20px;
+                }
+                .time{
+                    font-weight: 700;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    @include vw{
+                        font-size: get-vw(18px);
+                        margin-bottom: get-vw(10px);
+                    }
+                    @include tablet-small{
+                        font-size: 14px;
+                        width: 100%;
+                        text-align: left;
+                    }
+                    @include mobile{
+                        text-align: center;
+                    }
+                    span{
+                        color: #009E10;
+                    }
+                    &.color-red{
+                        span{
+                            color: #FF313D;
+                        }
+                    }
+                }
+                .status{
+                    text-align: center;
+                    svg,img{
+                        width: 50px;
+                        height: 50px;
+                        @include vw{
+                            width: get-vw(50px);
+                            height: get-vw(50px);
+                        }
+                        @include tablet-small{
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                    &-label{
+                        display: block;
+                        margin-top: 8px;
+                        font-size: 14px;
+                        @include vw{
+                            margin-top: get-vw(8px);
+                            font-size: get-vw(14px);
+                        }
+                    }
+                }
+                .view-btn{
+                    margin-top: 20px;
+                    display: block;
+                    text-align: center;
+                    @include vw{
+                        margin-top: get-vw(20px);
+                    }
+                    @include tablet-small{
+                        margin: 0 20px;
+                    }
+                    svg{
+                        vertical-align: middle;
+                        width: 16px;
+                        height: 16px;
+                        margin-right: 5px;
+                        @include vw{
+                            width: get-vw(16px);
+                            height: get-vw(16px);
+                            margin-right: get-vw(5px);
+                        }
+                    }
+                    color: #00A912;
+                }
+                .step-label{
+                    background-color: #DEF5FF;
+                    border: 1px solid #19ACDA;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    @include display-flex(flex);
+                    @include align-item(center);
+                    font-weight: 700;
+                    margin-top: 18px;
+                    @include vw{
+                        padding: get-vw(10px) get-vw(20px);
+                        border-radius: get-vw(5px);
+                        margin-top: get-vw(18px);
+                    }
+                    @include tablet-small{
+                        font-size: 12px;
+                        padding: 5px 10px;
+                    }
+                    .counter{
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: #19ACDA;
+                        margin-right: 18px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 24px;
+                        text-align: center;
+                        text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+                        @include vw{
+                            width: get-vw(30px);
+                            height: get-vw(30px);
+                            margin-right: get-vw(18px);
+                            font-size: get-vw(24px);
+                        }
+                        @include tablet-small{
+                            font-size: 14px;
+                            margin-right: 10px;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+                .button{
+                    padding: 12px 20px;
+                    margin-top: 18px;
+                    margin-left: 10px;
+                    @include vw{
+                        padding: get-vw(12px) get-vw(20px);
+                        margin-top: get-vw(18px);
+                        margin-left: get-vw(10px);
+                    }
+                    @include tablet-small{
+                        padding: 4px 9px;
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                    svg{
+                        width: 20px;
+                        height: 18px;
+                        margin-right: 18px;
+                        vertical-align: middle;
+                        @include vw{
+                            width: get-vw(20px);
+                            height: get-vw(18px);
+                            margin-right: get-vw(18px);
+                        }
+                        @include mobile{
+                            width: 12px;
+                            height: 10px;
+                            margin-right: 10px;
+                        }
+                    }
+                    &.btn-release,&.btn-reject{
+                        &:hover,&:focus{
+                            svg{
+                                path{
+                                    fill: #fff;
+                                }
+                            }
+                        }
+                    }
+                    &.btn-reject{
+                        margin-left: 10px;
+                        @include vw{
+                            margin-left: get-vw(10px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.chat-room{
+    .page-title{
+        @include display-flex(flex);
+        @include justify-content(space-between);
+        @include align-item(center);
+        @include mobile{
+            @include flex-wrap(wrap);
+        }
+        h6{
+            margin-bottom: 0;
+        }
+        .btn-wrap{
+            @include mobile{
+                margin-top: 10px;
+            }
+            .button{
+                margin-left: 18px;
+                padding: 4px 8px;
+                border: none;
+                font-size: 12px;
+                @include vw{
+                    padding: get-vw(4px) get-vw(8px);
+                    font-size: get-vw(12px);
+                    margin-left: get-vw(18px);
+                }
+                @include mobile{
+                    margin-left: 5px;
+                    padding: 4px 6px;
+                    border: none;
+                    font-size: 10px;
+                }
+                &-online{
+                    background-color: #00A912;
+                    color: $white-color;
+                    &::before{
+                        background-color: $white-color;
+                        content: "";
+                        display: inline-block;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        margin-right: 6px;
+                        vertical-align: middle;
+                        margin-top: -2px;
+                        @include vw{
+                            width: get-vw(8px);
+                            height: get-vw(8px);
+                            margin-right: get-vw(6px);
+                            margin-top: get-vw(-2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .chat-room-sidebar{
+        .tabs{
+            flex: 1 1 100%;
+            ul{
+                border: none;
+                li{
+                    border: none;
+                    width: 50%;
+                    text-align: center;
+                    a{
+                        font-weight: 700;
+                    }
+                    &.active{
+                        a{
+                            background-color: $button-blue;
+                            color: $white-color;
+                        }
+                    }
+                }
+            }
+        }
+        .user-profile{
+            &-name{
+                h6{
+                    font-size: 14px;
+                    font-weight: 600;
+                    @include vw{
+                        font-size: get-vw(14px);
+                    }
+                }
+            }
+            .button{
+                padding: 4px 8px;
+                border: none;
+                font-size: 12px;
+                @include vw{
+                    padding: get-vw(4px) get-vw(8px);
+                    font-size: get-vw(12px);
+                }
+                &::before{
+                    content: "";
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    margin-right: 6px;
+                    vertical-align: middle;
+                    background-color: #656565;
+                    margin-top: -2px;
+                    @include vw{
+                        width: get-vw(8px);
+                        height: get-vw(8px);
+                        margin-right: get-vw(6px);
+                        margin-top: get-vw(-2px);
+                    }
+                }
+                &-online{
+                    background-color: #00A912;
+                    color: $white-color;
+                    &::before{
+                        background-color: $white-color;
+                    }
+                }
+                &-offline{
+                    @include themed(){
+                        background-color: t($tag-bg);
+                        color: t($text);
+                    }
+                    &::before{
+                        @include themed(){
+                            background-color: t($text);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .chat-header{
+        @include mobile{
+            @include flex-wrap(wrap);
+        }
+        .more-btn{
+            @include tablet-small{
+                margin-left: 20px;
+            }
+            @include mobile{
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+        }
+        .user-profile{
+            &-image{
+                position: relative;
+                .status{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    transform: translate(50%,-50%);
+                    @include themed(){
+                        border: 1px solid t($card-bg);
+                    }
+                    @include vw{
+                        width: get-vw(10px);
+                        height: get-vw(10px);
+                    }
+                    &.online{
+                        background-color: #00A912;
+                    }
+                    &.offline{
+                        @include themed(){
+                            background-color: t($text);
+                        }
+                    }
+                }
+            }
+            &-name{
+                h6{
+                    font-size: 14px;
+                    font-weight: 600;
+                    @include vw{
+                        font-size: get-vw(14px);
+                    }
+                    .followers{
+                        color: $primary-color;
+                        font-weight: 400;
+                        &::before{
+                            content: "";
+                            display: inline-block;
+                            width: 8px;
+                            height: 8px;
+                            margin: 0 8px;
+                            border-radius: 50%;
+                            @include themed(){
+                                background-color: t($text-secondary);
+                            }
+                            @include vw{
+                                width: get-vw(8px);
+                                height: get-vw(8px);
+                                margin: 0 get-vw(8px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .search-box{
+            position: relative;
+            margin-left: auto;
+            @include tablet-small{
+                width: 160px;
+            }
+            @include mobile{
+                margin-left: 0;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .form-input{
+                height: 40px;
+                @include vw{
+                    height: get-vw(40px);
+                }
+            }
+            .search-button{
+                position: absolute;
+                right: 12px;
+                top: 12px;
+                border: none;
+                background-color: transparent;
+                padding: 0;
+                
+                cursor: pointer;
+                @include vw{
+                    top: get-vw(12px);
+                    right: get-vw(12px);
+                }
+                &:focus{
+                    outline: 0;
+                }
+                svg{
+                    width: 14px;
+                    height: 14px;
+                    @include vw{
+                        width: get-ve(14px);
+                        height: get-ve(14px);
+                    }
+                }
+            }
+        }
+    }
+    .message{
+        margin-bottom: 5px;
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+    .receiver{
+        @include align-item(flex-end);
+        .profile-pic{
+            margin-bottom: 27px;
+        }
+    }
+    .receiver,.sender{
+        .time{
+            margin-top: 9px;
+            @include vw{
+                margin-top: get-vw(9px);
+            }
+        }
+    }
+    .send-message{
+        @include align-item(flex-start);
+        .chat-box{
+            .form-input{
+                padding-right: 80px;
+            }
+            .attach-btn,.emoji-btn{
+                padding: 8px;
+                background-color: rgba($primary-color,0.3);
+                @include vw{
+                    padding: get-vw(8px);
+                }
+            }
+            .emoji-btn{
+                right:50px;
+                @include vw{
+                    right: get-vw(50px);
+                }
+            }
+        }
+        .tags{
+            text-align: right;
+            margin-top: 16px;
+            @include vw{
+                margin-top: get-vw(16px);
+            }
+            @include tablet{
+                margin-top: 8px;
+            }
+            @include tablet-small{
+                margin-top: 5px;
+            }
+            .tag{
+                padding: 13px;
+                border-radius: 10px;
+                font-size: 14px;
+                font-weight: 600;
+                margin: 0;
+                margin-left: 16px;
+                color: $black-color;
+                margin-bottom: 16px;
+                @include vw{
+                    padding: get-vw(13px);
+                    border-radius: get-vw(10px);
+                    font-size: get-vw(14px);
+                    margin-left: get-vw(16px);
+                }
+                @include tablet{
+                    margin-left: 8px;
+                    margin-bottom: 8px;
+                    font-size: 12px;
+                    padding: 8px;
+                    border-radius: 5px;
+                }
+                @include tablet-small{
+                    padding: 5px;
+                    border-radius: 5px;
+                    font-size: 11px;
+                    font-weight: 600;
+                    margin-left: 5px;
+                    margin-bottom: 5px;
+                }
+                @include themed(){
+                    background-color: rgba($primary-color,0.3);
+                    border: none;
+                }
+            }
+        }
+        .button{
+            @include mobile{
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            svg{
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+}

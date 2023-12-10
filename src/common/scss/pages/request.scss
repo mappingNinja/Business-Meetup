@@ -1,0 +1,211 @@
+@import "../main";
+.layout-grid-box-2column-right{
+    display: grid;
+    grid-template-columns: 1072px 300px;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    padding-top: 30px;
+    min-height: calc(100vh - 101px);
+
+    @include vw{
+        grid-template-columns: get-vw(1072px) get-vw(300px);
+        grid-column-gap: get-vw(20px);
+        grid-row-gap: get-vw(30px);
+        padding-top: get-vw(30px);
+        min-height: calc(100vh - #{get-vw(113px)});
+    }
+    @include tablet{
+        display: block;
+    }
+}
+.request-wrap{
+    h6{
+        margin-bottom: 10px;
+        font-size: 18px;
+        @include vw{
+            margin-bottom: get-vw(10px);
+            font-size: get-vw(18px);
+        }
+        span{
+            font-size: 14px;
+            font-weight: 500;
+            @include vw{
+                font-size: get-vw(14px);
+            }
+        }
+    }
+    &-head{
+        @include display-flex(flex);
+        @include align-item(center);
+        @include justify-content(space-between);
+        @include mobile{
+            @include flex-direction(column);
+            @include justify-content(center);
+        }
+        .search-box{
+            position: relative;
+            .form-input{
+                height: 30px;
+                @include vw{
+                    height: get-vw(30px);
+                }
+            }
+            .search-button{
+                position: absolute;
+                right: 12px;
+                top: 5px;
+                border: none;
+                background-color: transparent;
+                padding: 0;
+                
+                cursor: pointer;
+                @include vw{
+                    top: get-vw(5px);
+                    right: get-vw(12px);
+                }
+                &:focus{
+                    outline: 0;
+                }
+                svg{
+                    width: 14px;
+                    height: 14px;
+                    @include vw{
+                        width: get-ve(14px);
+                        height: get-ve(14px);
+                    }
+                }
+            }
+        }
+        .short{
+            .form-input{
+                height: 32px;
+                padding-top: 0;
+                padding-bottom: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 14px;
+                @include vw{
+                    height: get-vw(32px);
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    font-size: get-vw(14px);
+                }
+            }
+        }
+        .tabs{
+            @include mobile{
+                margin-bottom: 15px;
+            }
+            li{
+                @include mobile{
+                    display: block;
+                    border-right: none !important;
+                }
+                a{
+                    display: block;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    font-size: 14px;
+                    @include vw{
+                        padding-top: get-vw(8px);
+                        padding-bottom: get-vw(8px);
+                        padding-left: get-vw(20px);
+                        padding-right: get-vw(20px);
+                        font-size: get-vw(14px);
+                    }
+                    @include mobile{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+.request{
+    margin-top: 20px;
+    @include vw{
+        margin-top: get-vw(20px);
+    }
+    &-list{
+        margin-bottom: 15px;
+        @include vw{
+            margin-bottom: get-vw(15px);
+        }
+    }
+    .user-profile-image{
+        width: 65px;
+        height: 65px;
+        @include vw{
+            width: get-vw(65px);
+            height: get-vw(65px);
+        }
+        @include tablet{
+            width: 35px;
+            height: 35px;
+        }
+    }
+    .user-profile-name{
+        h6{
+            margin-bottom: 3px;
+            span{
+                font-size: 12px;
+                line-height: 1.3;
+                font-weight: 600;
+                margin-left: 10px;
+                @include themed(){
+                    color: rgba(t($text-secondary) , 0.5);
+                }
+                @include vw{
+                    font-size: get-vw(12px);
+                    margin-left: get-vw(10px);
+                }
+            }
+            @include vw{
+                margin-bottom: get-vw(3px);
+            }
+        }
+        p{
+            margin-bottom: 4px;
+            font-size: 13px;
+            line-height: 1.384615;
+            @include vw{
+                margin-bottom: get-vw(4px);
+                font-size: get-vw(13px);
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    .user-profile-content{
+        @include mobile{
+            @include justify-content(flex-start);
+        }
+        .user-profile-name{
+            @include tablet{
+                margin-bottom: 10px;
+                margin-right: auto;
+            }
+        }
+        .button{
+            padding: 4px 9px;
+            height: 30px;
+            font-size: 14px;
+            @include vw{
+                padding: get-vw(4px) get-vw(9px);
+                height: get-vw(30px);
+                font-size: get-vw(14px);
+            }
+            &-accept{
+                margin-left: auto;
+                margin-right: 10px;
+                @include vw{
+                    margin-right: get-vw(10px);
+                }
+            }
+        }
+    }
+}

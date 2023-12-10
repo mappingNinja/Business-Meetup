@@ -1,0 +1,587 @@
+@import "../main";
+.support-page{
+    .layout-grid--main{
+        padding-top: 0;
+    }
+    .page-title{
+        padding-top: 20px;
+        @include vw{
+            padding-top: get-vw(20px);
+        }
+        h6{
+            margin-bottom: 0px;
+            font-size: 18px;
+            @include vw{
+                font-size: get-vw(18px);
+            }
+        }
+    }
+    .layout-grid-box-column2{
+        min-height: calc(100vh - 141px);
+    }
+}
+.support-sidebar{
+    .sidebar-title{
+        padding: 12px;
+        margin-bottom: 5px !important;
+        @include vw{
+            padding: get-vw(12px);
+            margin-bottom: get-vw(5px) !important;
+        }
+        h6{
+            font-size: 16px;
+            @include vw{
+                font-size: get-vw(16px);
+            }
+        }
+    }
+    .sidebar-nav--item{
+        padding: 12px;
+        @include vw{
+            padding: get-vw(12px);
+        }
+    }
+}
+.support-issue{
+    .form-field{
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+.card-footer{
+    padding-top: 0;
+    text-align: right;
+    .button{
+        padding-left: 20px;
+        padding-right: 20px;
+        @include vw{
+            padding-left: get-vw(20px);
+            padding-right: get-vw(20px);
+        }
+        &.button-primary{
+            margin-left: 10px;
+            @include vw{
+                margin-left: get-vw(10px);
+            }
+        }
+    }
+}
+.file-upload{
+    position: relative;
+    margin: 0 !important;
+    input[type="file"]{
+        position: absolute;
+        opacity: 0;
+    }
+    label{
+        border-radius: 4px;
+        padding: 12px 24px;
+        border: 1px solid $grey-color4;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+        font-size: 14px;
+        height: 45px;
+        @include themed() {
+            color: t($text);
+        }
+        @include vw{
+            border-radius: get-vw(4px);
+            padding: get-vw(12px) get-vw(24px);
+            font-size: get-vw(14px);
+            height: get-vw(45px);
+        }
+    
+        @include tablet-small{
+            font-size: 14px;
+        }
+        .icon{
+            position: absolute;
+            top: 12px;
+            right: 13px;
+            @include vw{
+                top: get-vw(12px);
+                right: get-vw(13px);
+            }
+            svg{
+                width: 14px;
+                height: 20px;
+                @include vw{
+                    width: get-vw(14px);
+                    height: get-vw(20px);
+                }
+                path{
+                    @include themed(){
+                        fill: t($text);
+                    }
+                }
+            }
+        }
+    }
+    
+}
+.support-other{
+    @include display-flex(flex);
+    @include justify-content(space-between);
+    margin-bottom: 20px;
+    @include vw{
+        margin-bottom: get-vw(20px);
+    }
+    .tabs{
+        li{
+            a{
+                display: block;
+                padding-top: 11px;
+                padding-bottom: 11px;
+                @include vw{
+                    padding-top: get-vw(11px);
+                    padding-bottom: get-vw(11px);
+                }
+            }
+        }
+    }
+    .search-box{
+        position: relative;
+        margin: 0 10px;
+        flex: none;
+        @include vw{
+            margin: 0 get-vw(10px);
+        }
+        @include mobile{
+            margin-right: 0;
+            margin-top: 10px;
+        }
+        .form-input{
+            background-color: $white-color;
+        }
+        .search-button{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            
+            cursor: pointer;
+            @include vw{
+                top: get-vw(10px);
+                right: get-vw(10px);
+            }
+            &:focus{
+                outline: 0;
+            }
+            svg{
+                width: 18px;
+                height: 18px;
+                @include vw{
+                    width: get-ve(18px);
+                    height: get-ve(18px);
+                }
+            }
+        }
+    }
+}
+.orders{
+    .order-item{
+        @include display-flex(flex);
+        @include align-item(center);
+        margin-bottom: 20px;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+        @include themed(){
+            border: 1px solid t($border);
+        }
+        @include vw{
+            margin-bottom: get-vw(20px);
+            border-radius: get-vw(10px);
+            padding: get-vw(20px);
+        }
+        @include mobile{
+            @include flex-wrap(wrap);
+        }
+        .image-block{
+            width: 90px;
+            height: 90px;
+            margin-right: 20px;
+            @include vw{
+                width: get-vw(90px);
+                height: get-vw(90px);
+                margin-right: get-vw(20px);
+            }
+        }
+        .content-block{
+            width: calc(100% - 110px);
+            @include vw{
+                width: calc(100% - #{get-vw(110px)});
+            }
+            @include mobile{
+                width: 100%;
+            }
+            h6{
+                font-size: 16px;
+                margin-bottom: 10px;
+                @include vw{
+                    font-size: get-vw(16px);
+                    margin-bottom: get-vw(10px);
+                }
+            }
+            .company-name{
+                @include display-flex(flex);
+                @include align-item(center);
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                @include vw{
+                    font-size: get-vw(16px);
+                    margin-bottom: get-vw(10px);
+                }
+                img{
+                    width: 35px;
+                    height: 35px;
+                    object-fit: contain;
+                    margin-right: 14px;
+                    @include vw{
+                        width: get-vw(35px);
+                        height: get-vw(35px);
+                        margin-right: get-vw(14px);
+                    }
+                }
+            }
+            ul{
+                margin: 0;
+                list-style: none;
+                padding: 0;
+                li{
+                    font-size: 14px;
+                    @include vw{
+                        font-size: get-vw(14px);
+                    }
+                }
+                label{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+.chat-header{
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(space-between);
+    padding: 15px;
+    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    @include vw{
+        padding: get-vw(15px);
+    }
+    .logo{
+        font-size: 18px;
+        font-weight: 600;
+        @include vw{
+            font-size: get-vw(18px);
+        }
+        img{
+            width: 30px;
+            border-radius: 5px;
+            margin-right: 10px;
+            @include vw{
+                width: get-vw(30px);
+                border-radius: get-vw(5px);
+                margin-right: get-vw(10px);
+            }
+        }
+    }
+    .more-btn{
+        margin-left: 20px;
+        position: relative;
+        @include tablet{
+            margin-left: auto;
+        }
+        .dropdown-toggle{
+            width: 37.57px;
+            height: 37.57px;
+            border-radius: 50%;
+            background-color: #F6F7F9;
+            padding: 0;
+            @include display-flex(flex);
+            @include align-item(center);
+            @include justify-content(center);
+            &::after{
+                display: none;
+            }
+        }
+        @include vw{
+            margin-left: get-vw(20px);
+        }
+    }
+}
+.chat-body{
+    padding: 40px 12px;
+    @include vw{
+        padding: get-vw(40px) get-vw(12px);
+    }
+    .sender{
+        @include display-flex(flex);
+        @include align-item(flex-end);
+        @include flex-direction(column);
+        margin-bottom: 20px;
+        @include vw{
+            margin-bottom: get-vw(20px);
+        }
+        .message{
+            background-color: $primary-color;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 285px;
+            @include vw{
+                padding: get-vw(15px);
+                border-radius: get-vw(10px);
+                max-width: get-vw(285px);
+            }
+            p{
+                margin-bottom: 10px;
+                line-height: 1.4375;
+                @include vw{
+                    margin-bottom: get-vw(10px);
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .time{
+            font-size: 12px;
+            margin-top: 14px;
+            @include vw{
+                font-size: get-vw(12px);
+                margin-top: get-vw(14px);
+            }
+        }
+    }
+    .receiver{
+        @include display-flex(flex);
+        margin-bottom: 20px;
+        @include vw{
+            margin-bottom: get-vw(20px);
+        }
+        .profile-pic{
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            @include vw{
+                width: get-vw(30px);
+                height: get-vw(30px);
+                margin-right: get-vw(15px);
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+                @include vw{
+                    border-radius: get-vw(5px);
+                }
+            }
+        }
+        .profile{
+            width: calc(100% - 45px);
+            @include vw{
+                width: calc(100% - #{get-vw(45px)});
+            }
+        }
+        .message{
+            background-color: #EAEAEA;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 285px;
+            @include vw{
+                padding: get-vw(15px);
+                border-radius: get-vw(10px);
+                max-width: get-vw(285px);
+            }
+            p{
+                margin-bottom: 10px;
+                line-height: 1.4375;
+                @include vw{
+                    margin-bottom: get-vw(10px);
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .time{
+            font-size: 12px;
+            margin-top: 14px;
+            @include vw{
+                font-size: get-vw(12px);
+                margin-top: get-vw(14px);
+            }
+        }
+    }
+
+}
+.chat-box{
+    position: relative;
+    flex: auto;
+    .attach-btn,.emoji-btn{
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        background-color: rgba($primary-color,0.5);
+        border-radius: 10px;
+        padding: 10px;
+        @include vw{
+            right: get-vw(10px);
+            top: get-vw(5px);
+            border-radius: get-vw(10px);
+            padding: get-vw(10px);
+        }
+        svg{
+            width: 14px;
+            height: 14px;
+            path{
+                fill: $black-color;
+            }
+            @include vw{
+                width: get-vw(14px);
+                height: get-vw(14px);
+            }
+        }
+    }
+}
+.send-message{
+    @include display-flex(flex);
+    .button{
+        svg{
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            @include vw{
+                width: get-vw(20px);
+                height: get-vw(20px);
+            }
+        }
+    }
+}
+.ticket-item{
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(space-between);
+    .ticket-name{
+        font-size: 14px;
+        font-weight: 600;
+        @include vw{
+            font-size: get-vw(14px);
+        }
+        span{
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            @include vw{
+                font-size: get-vw(12px);
+            }
+        }
+    }
+    .ticket-time{
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 400;
+        @include vw{
+            font-size: get-vw(12px);
+        }
+    }
+}
+.ticket-head{
+    width: 100%;
+    &--top{
+        @include display-flex(flex);
+        @include align-item(center);
+        @include justify-content(space-between);
+        .tabs{
+            li{
+                a{
+                    display: block;
+                    padding: 12px 10px;
+                    font-size: 12px;
+                    @include vw{
+                        padding: get-vw(12px) get-vw(10px);
+                        font-size: get-vw(12px);
+                    }
+                }
+            }
+        }
+        .filter-btn{
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            width: 24px;
+            height: 24px;
+            @include vw{
+                width: get-vw(24px);
+                height: get-vw(24px);
+            }
+            svg{
+                width: 20px;
+                height: 17px;
+                vertical-align: middle;
+                @include vw{
+                    width: get-vw(20px);
+                    height: get-vw(17px);
+                }
+            }
+        }
+    }
+    + .collapse-button{
+        @include tablet-small{
+            margin-left: 10px;
+        }
+    }
+}
+.tickets-list{
+    .search-box{
+        position: relative;
+        margin: 0px 12px 13px;
+        flex: none;
+        @include vw{
+            margin: get-vw(0px) get-vw(12px) get-vw(13px);
+        }
+        .form-input{
+            background-color: $white-color;
+        }
+        .search-button{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            
+            cursor: pointer;
+            @include vw{
+                top: get-vw(10px);
+                right: get-vw(10px);
+            }
+            &:focus{
+                outline: 0;
+            }
+            svg{
+                width: 18px;
+                height: 18px;
+                @include vw{
+                    width: get-ve(18px);
+                    height: get-ve(18px);
+                }
+            }
+        }
+    }
+}
+.closed-message{
+    background-color: #FFF2D3;
+    text-align: center;
+    padding: 24px;
+    @include vw{
+        padding: get-vw(24px);
+    }
+}

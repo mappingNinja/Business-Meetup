@@ -1,0 +1,211 @@
+@import "../main";
+.page-banner{
+    background-color: #FFF2D3;
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(center);
+    padding: 30px 20px;
+    @include vw{
+        padding: get-vw(30px) get-vw(20px);
+    }
+    h6{
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        color: $black-color;
+        margin-bottom: 0;
+        @include vw{
+            font-size: get-vw(18px);
+        }
+    }
+    h1{
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 2.1;
+        color: $black-color;
+        margin-bottom: 0;
+        @include vw{
+            font-size: get-vw(24px);
+        }
+    }
+    p{
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: $black-color;
+        text-align: center;
+        @include vw{
+            font-size: get-vw(14px);
+            margin-bottom: get-vw(20px);
+        }
+    }
+    .search-box{
+        position: relative;
+        margin: 0 10px;
+        flex: auto;
+        @include vw{
+            margin: 0 get-vw(10px);
+        }
+        @include mobile{
+            margin-right: 0;
+            margin-top: 10px;
+        }
+        .form-input{
+            background-color: $white-color;
+        }
+        .search-button{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            
+            cursor: pointer;
+            @include vw{
+                top: get-vw(10px);
+                right: get-vw(10px);
+            }
+            &:focus{
+                outline: 0;
+            }
+            svg{
+                width: 18px;
+                height: 18px;
+                @include vw{
+                    width: get-ve(18px);
+                    height: get-ve(18px);
+                }
+            }
+        }
+    }
+}
+.faqs{
+    margin-top: 30px;
+    @include vw{
+        margin-top: get-vw(30px);
+    }
+    @include mobile{
+        margin-top: 30px;
+    }
+    .col-sm-4{
+        margin-bottom: 30px;
+        @include vw{
+            margin-bottom: get-vw(30px);
+        }
+        @include mobile{
+            margin-bottom: 30px;
+        }
+    }
+    .icon{
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background-color: #FFF2D3;
+        margin-bottom: 22px;
+        @include display-flex(flex);
+        @include align-item(center);
+        @include justify-content(center);
+        @include vw{
+            width: get-vw(52px);
+            height: get-vw(52px);
+            margin-bottom: get-vw(22px);
+        }
+        svg{
+            width: 20px;
+            height: 22px;
+            @include vw{
+                width: get-vw(22px);
+                height: get-vw(22px);
+            }
+        }
+        
+        
+    }
+    h6{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        @include themed(){
+            color: t($text);
+        }
+        @include vw{
+            font-size: get-vw(18px);
+            margin-bottom: get-vw(5px);
+        }
+    }
+    p{
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0px;
+        line-height: 1.464;
+        @include themed(){
+            color: t($text);
+        }
+        @include vw{
+            font-size: get-vw(14px);
+        }
+    }
+}
+.space-bottom{
+    padding-top: 30px;
+    @include vw{
+        padding-top: get-vw(30px);
+    }
+}
+.cta-section{
+    background-color: #FFF2D3;
+    @include display-flex(flex);
+    @include align-item(center);
+    @include justify-content(space-between);
+    padding: 30px;
+    border-radius: 20px;
+    @include vw{
+        padding: get-vw(30px);
+        border-radius: get-vw(20px);
+    }
+    @include tablet{
+        @include flex-wrap(wrap);
+    }
+    h6{
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: $black-color;
+        @include vw{
+            font-size: get-vw(22px);
+            margin-bottom: get-vw(10px);
+        }
+        @include mobile{
+            font-size: 18px;
+        }
+    }
+    p{
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 0px;
+        line-height: 1.464;
+        color: $black-color;
+        @include vw{
+            font-size: get-vw(20px);
+        }
+        @include mobile{
+            font-size: 16px;
+        }
+    }
+    .button{
+        background-color: $black-color;
+        color: $white-color;
+        padding: 11px 20px;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 600;
+        @include vw{
+            padding: get-vw(11px) get-vw(20px);
+            border-radius: get-vw(8px);
+            font-size: get-vw(18px);
+        }
+        @include tablet{
+            margin-top: 15px;
+        }
+    }
+}

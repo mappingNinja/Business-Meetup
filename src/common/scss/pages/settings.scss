@@ -1,0 +1,1396 @@
+@import "../main";
+.layout-grid-box-column2{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    padding-top: 20px;
+    min-height: calc(100vh - 101px);
+
+    @include vw{
+        grid-template-columns: get-vw(300px) 1fr;
+        grid-column-gap: get-vw(20px);
+        grid-row-gap: get-vw(30px);
+        padding-top: get-vw(20px);
+    }
+    @include tablet{
+        grid-template-columns: 260px 1fr;
+    }
+    @include tablet-small{
+        display: block;
+    }
+    .layout-grid {
+        &--left{
+            @include tablet{
+                display: block;
+            }
+            .sidebar-title{
+                margin-bottom: 15px;
+                @include vw{
+                    margin-bottom: get-vw(15px);
+                }
+            }
+            h6{
+                
+                font-size: 24px;
+                line-height: 1.2083;
+                margin-bottom: 0;
+                @include themed(){
+                    color: t($text-secondary);
+                }
+                @include vw{
+                    font-size: get-vw(24px);
+                }
+            }
+        }
+        &--main{
+            padding-top: 38px;
+            @include vw{
+                padding-top: get-vw(38px);
+            }
+            @include tablet-small{
+                padding-top: 0;
+            }
+            .card{
+                &.small-box{
+                    width: 700px;
+                    max-width: 100%;
+                    @include vw{
+                        width: get-vw(700px);
+                    }
+                    @include tablet-small{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+.sidebar-title{
+    @include display-flex(flex);
+    @include justify-content(space-between);
+    @include align-item(center);
+}
+.sidebar-nav{
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    &--item{
+        padding: 6px 12px;
+        @include themed(){
+            border-bottom: 1px solid t($border);
+        }
+        @include vw{
+            padding: get-vw(6px) get-vw(12px);
+        }
+        &:last-child{
+            border-bottom: none;
+        }
+        .icon{
+            margin-right: 10px;
+            vertical-align: middle;
+            @include vw{
+                margin-right: get-vw(10px);
+            }
+            img{
+                width: 30px;
+                @include vw{
+                    width: get-vw(30px);
+                }
+            }
+        }
+        a{
+            font-size: 14px;
+            line-height: 1.235294117647059;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            @include themed(){
+                color: t($text-secondary);
+            }
+            @include vw{
+                font-size: get-vw(14px);
+            }
+            @include tablet{
+                font-size: 12px;
+            }
+        }
+        &.active,&:hover{
+            background-color: #FFF2D3;
+            a{
+                color: $text--2--light;
+            }
+        }
+    }
+}
+.section-title{
+    @include display-flex(flex);
+    @include justify-content(space-between);
+    h6{
+        margin-bottom: 26px;
+        font-size: 16px;
+        line-height: 1.2083;
+        @include themed(){
+            color: t($text-secondary);
+        }
+        @include vw{
+            margin-bottom: get-vw(26px);
+            font-size: get-vw(16px);
+        }
+        @include tablet-small{
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
+    .tooltip-icon{
+        margin-top: 6px;
+        @include vw{
+            margin-top: get-vw(6px);
+        }
+    }
+}
+.change-password,.otp-section{
+    
+    .form-button{
+        @include display-flex(flex);
+        
+        .button {
+            width: 50%;
+            margin-right: 14px;
+            @include mobile{
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
+.otp-section{
+    h6{
+        margin-bottom: 14px;
+        @include vw{
+            margin-bottom: get-vw(14px);
+        }
+    }
+    p{
+        font-size: 18px;
+        line-height: 1.2;
+        margin-bottom: 29px;
+        @include vw{
+            font-size: get-vw(18px);
+            margin-bottom: get-vw(29px);
+        }
+        @include mobile{
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+    .form-field{
+        @include display-flex(flex);
+        .form-input{
+            margin-right: 20px;
+            @include vw{
+                margin-right: get-vw(20px);
+            }
+            @include mobile{
+                margin-right: 5px;
+                padding: 12px 5px;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
+.changetheme-section{
+    .flex-box{
+        padding: 0;
+        @include tablet-small{
+            @include flex-wrap(nowrap);
+        }
+        .flex-item{
+            margin: 0;
+            margin-right: 20px;
+            @include vw{
+                margin-right: get-vw(20px);
+            }
+            @include tablet-small{
+                width: 50%;
+                margin-right: 10px;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    .form-field{
+        margin-bottom: 0;
+        input[type='radio']{
+            opacity: 0;
+            position: absolute;
+            & + label{
+                width: 100%;
+                text-align: center;
+                padding-left: 0;
+                cursor: pointer;
+                &::before,&::after{
+                    display: none;
+                }
+                img{
+                    width: 100%;
+                    border: 3px solid transparent;
+                    border-radius: 7px;
+                    @include vw{
+                        border: get-vw(3px) solid transparent;
+                        border-radius: get-vw(7px);
+                    }
+                }
+                .button{
+                    padding: 10px 30px;
+                    font-size: 18px;
+                    font-weight: 700;
+                    border-radius: 90px;
+                    margin-top: 15px;
+                    @include vw{
+                        padding: get-vw(10px) get-vw(30px);
+                        font-size: get-vw(18px);
+                        border-radius: get-vw(90px);
+                        margin-top: get-vw(15px);
+                    }
+                    @include tablet-small{
+                        padding: 12px 24px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            &:checked{
+                & + label{
+                    img{
+                        border-color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+    .change-default{
+        .form-field{
+            input[type='radio']{
+                & + label{
+                    .button{
+                        background-color: #EAEAEA;
+                        color: $black-color;
+                        border: 1px solid $black-color;
+                    }
+                }
+            }
+        }
+    }
+    .change-dark{
+        .form-field{
+            input[type='radio']{
+                & + label{
+                    .button{
+                        background-color: #2A2A2A;
+                        color: $white-color;
+                        border: 1px solid $black-color;
+                    }
+                }
+            }
+        }
+    }
+}
+.blockeduser-list{
+    .button{
+        padding: 11px 21px;
+        max-width: none;
+        line-height: 1.375;
+        @include vw{
+            padding: get-vw(11px) get-vw(21px);
+            
+        }
+        @include tablet-small{
+            padding: 4px 9px;
+            margin-top: 10px;
+        }
+    }
+    .card-lists-item{
+        padding: 15px;
+        margin-bottom: 16px;
+        border-radius: 10px;
+        @include themed(){
+            border: 1px solid t($border);
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+        @include vw{
+            padding: get-vw(15px);
+            margin-bottom: get-vw(16px);
+            border-radius: get-vw(10px);
+        }
+        @include mobile{
+            padding: 10px;
+        }
+    }
+    .user-profile-content{
+        @include align-item(center);
+    }
+    .user-profile{
+        
+        .user-profile-image{
+            width: 80px;
+            height: 80px;
+            @include vw{
+                width: get-vw(80px);
+                height: get-vw(80px);
+            }
+            @include mobile{
+                width: 35px;
+                height: 35px;
+            }
+        }
+        .user-profile-name{
+            h6{
+                span{
+                    padding: 2px 8px;
+                    background-color: $primary-color;
+                    border-radius: 14px;
+                    font-weight: 400;
+                    margin-left: 13px;
+                    @include vw{
+                        padding: get-vw(2px) get-vw(8px);
+                        border-radius: get-vw(14px);
+                        margin-left:get-vw(13px);
+                    }
+                    @include mobile{
+                        font-size: 12px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+            p{
+                margin-bottom: 9px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                span{
+                    @include themed(){
+                        color: t($text-secondary);
+                    }
+                }
+            }
+
+        }
+    }
+}
+.prefilled-form{
+    .tabs{
+        & > ul{
+            display: inline-block;
+        }
+        li{
+            @include mobile{
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            a{
+                display: block;
+                text-decoration: none;
+                padding: 12px 26px;
+                @include vw{
+                    padding: get-vw(12px) get-vw(26px);
+                }
+                &.active{
+                    background-color: $primary-color;
+                }
+                @include tablet{
+                    padding: 12px 18px;
+                    font-size: 14px;
+                }
+                @include tablet-small{
+                    padding: 4px 9px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+.tab-content{
+    position: relative;
+    .button-add{
+        padding: 12px 21px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        @include translate(0,-100%);
+        @include vw{
+            padding: get-vw(12px) get-vw(21px);
+        }
+        @include mobile{
+            position: relative;
+            @include translate(0,0);
+            margin-bottom: 20px;
+            padding: 4px 9px;
+            font-size: 12px;
+        }
+        @include tablet{
+            font-size:14px;
+        }
+        @include tablet-small{
+            padding: 4px 9px;
+            font-size: 12px;
+        }
+        &:hover,&:focus{
+            border: none;
+        }
+        &.button-disabled{
+            border: none;
+        }
+    }
+    .button-wrap{
+        text-align: center;
+        margin-bottom: 30px;
+        @include vw{
+            margin-bottom: get-vw(30px);
+        }
+        @include tablet-small{
+            margin-bottom: 10px;
+        }
+        .button{
+            padding: 11px 15px;
+            @include vw{
+                padding: get-vw(11px) get-vw(15px);
+            }
+            @include mobile{
+                padding: 4px 9px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+.payment-details,.credit-policy{
+    padding-top: 23px;
+    @include vw{
+        padding-top: get-vw(23px);
+    }
+}
+.company-detail,.send-contact{
+    padding-top: 23px;
+    @include vw{
+        padding-top: get-vw(23px);
+    }
+    
+    .flex-box{
+        padding: 0;
+        @include tablet-small{
+            @include flex-wrap(nowrap);
+        }
+        @include mobile{
+            @include flex-wrap(wrap);
+        }
+        .flex-item{
+            position: relative;
+            margin: 0;
+            margin-right: 33px;
+            width: 50%;
+            @include vw{
+                margin-right: get-vw(33px);
+            }
+            @include mobile{
+                width: 100%;
+                margin-right: 0;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    input[type='radio']{
+        & + label{
+            display: block;
+            padding-left: 0;
+            &::before,&::after{
+                display: none;
+            }
+            .tick-mark{
+                position: absolute;
+                top: 0;
+                right: 0;
+                overflow: hidden;
+                width: 34px;
+                height: 34px;
+                opacity: 0;
+                border-radius: 0 5px 0 0;
+                @include display-flex(flex);
+                @include justify-content(flex-end);
+                @include vw{
+                    width: get-vw(34px);
+                    height: get-vw(34px);
+                    border-radius: 0 get-vw(5px) 0 0;
+                }
+                svg{
+                    width: 16px;
+                    height: 16px;
+                    position: relative;
+                    z-index: 1;
+                    margin-right: 5px;
+                    margin-top: 5px;
+                    @include vw{
+                        width: get-vw(16px);
+                        height: get-vw(16px);
+                        margin-right: get-vw(5px);
+                        margin-top: get-vw(5px);
+                    }
+                }
+                &::before{
+                    content: "";
+                    width: 68px;
+                    height: 68px;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    background-color: #14AD9B;
+                    @include vw{
+                        width: get-vw(68px);
+                        height: get-vw(68px);
+                    }
+                }
+            }
+        }
+        &:checked{
+            & + label{
+                .tick-mark{
+                    opacity: 1;
+                }
+                .company-detail--filled,.send-contact--filled{
+                    border-color: $primary-color;
+                    .company-profile{
+                        border-color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &--filled{
+        width: 100%;
+        border-color: #D8D8D8;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px;
+        background-color: rgba($primary-color,0.06);
+        @include themed(){
+            color: t($text-secondary);
+        }
+        @include vw{
+            border-radius: get-vw(5px);
+        }
+        .company-profile{
+            @include display-flex(flex);
+            padding: 22px;
+            border-bottom: 1px solid #D8D8D8;
+            border-radius: 5px;
+            @include themed(){
+                background-color: t($card-bg);
+            }
+            @include vw{
+                padding: get-vw(22px);
+                border-radius: get-vw(5px);
+            }
+            @include tablet-small{
+                padding: 10px;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+            }
+            &-image{
+                width: 115px;
+                height: 108px;
+                margin-right: 26px;
+                @include vw{
+                    width: get-vw(115px);
+                    height: get-vw(108px);
+                    margin-right: get-vw(26px);
+                }
+                @include tablet{
+                    width: 55px;
+                    height: 48px;
+                    margin-right: 10px;
+                }
+            }
+            &-content{
+                width: calc(100% - 141px);
+                @include vw{
+                    width: calc(100% - #{get-vw(141px)});
+                }
+                @include tablet{
+                    width: calc(100% - 65px);
+                }
+            }
+            &-name{
+                h6{
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    @include vw{
+                        font-size: get-vw(18px);
+                        margin-bottom: get-vw(10px);
+                    }
+                    @include tablet-small{
+                        font-size: 14px;
+                        margin-bottom: 5px;
+                    }
+                }
+                ul{
+                    li{
+                        margin-bottom: 15px;
+                        font-size: 16px;
+                        display: block;
+                        font-weight: 400;
+                        text-align: left;
+                        @include vw{
+                            margin-bottom: get-vw(15px);
+                            font-size: get-vw(16px);
+                        }
+                        @include tablet{
+                            font-size: 12px;
+                            margin-bottom: 5px;
+                        }
+                        label{
+                            margin-bottom: 0;
+                            width: 70px;
+                            font-weight: 600;
+                            @include vw{
+                                width: get-vw(70px);
+                            }
+                            @include tablet{
+                                width: 50px;
+                            }
+                        }
+                        span{
+                            margin-left: 5px;
+                            @include vw{
+                                margin-left: get-vw(5px);
+                            }
+                            .verified{
+                                svg{
+                                    width: 20px;
+                                    height: 20px;
+                                    vertical-align: middle;
+                                    @include vw{
+                                        width: get-vw(20px);
+                                        height: get-vw(20px);
+                                    }
+                                    @include tablet{
+                                        width: 14px;
+                                        height: 14px;
+                                    }
+                                    path{
+                                        fill: #14AD9B;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .company-info{
+            padding: 20px 22px;
+            @include vw{
+                padding: get-vw(20px) get-vw(22px);
+            }
+            @include tablet-small{
+                padding: 10px;
+            }
+        }
+        
+        
+    }
+}
+.info-box{
+    .info-item{
+        font-size: 16px;
+        margin-bottom: 15px;
+        @include vw{
+            font-size: get-vw(16px);
+            margin-bottom: get-vw(15px);
+        }
+        @include tablet-small{
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        label{
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            @include vw{
+                margin-bottom: get-vw(6px);
+            }
+        }
+        span{
+            font-weight: 400;
+        }
+        select{
+            background-color: transparent;
+            border: none;
+            appearance: none;
+            @include themed(){
+                color: t($text-secondary);
+            }
+            option{
+                @include themed(){
+                    background-color: t($card-bg);
+                }
+            }
+        }
+    }
+}
+.payment-details,.credit-policy{
+    @include mobile{
+        padding-top: 20px;
+    }
+    .payment-info,.policy-info{
+        border-radius: 5px;
+        padding: 20px 20px 0;
+        margin-top: 20px;
+        @include themed(){
+            border: 1px solid t($border);
+        }
+        @include vw{
+            padding: get-vw(20px) get-vw(20px) 0;
+            margin-top: get-vw(20px);
+        }
+        @include mobile{
+            margin-top: 0;
+            padding: 10px 10px 0;
+        }
+        .info-box{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            @include tablet{
+                grid-template-columns: auto auto;
+            }
+            @include tablet-small{
+                display: block;
+            }
+            .info-item{
+                padding-right: 54px;
+                margin-bottom: 32px;
+                @include vw{
+                    padding-right: get-vw(54px);
+                    margin-bottom: get-vw(32px);
+                }
+                @include tablet{
+                    padding-right: 20px;
+                }
+                @include tablet-small{
+                    padding-right: 0;
+                    margin-bottom: 15px;
+                }
+                &:nth-child(4n){
+                    padding-right: 14px;
+                    @include vw{
+                        padding-right: get-vw(14px);
+                    }
+                    @include tablet-small{
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    .policy-info{
+        max-width: 644px;
+        @include vw{
+            max-width: get-vw(644px);
+        }
+    }
+}
+.credit-policy{
+    .policy-info{
+        .info-box{
+            display: grid;
+            grid-template-columns: auto auto;
+            @include tablet-small{
+                display: block;
+            }
+            .info-item{
+                padding-right: 124px;
+                margin-bottom: 20px;
+                @include vw{
+                    padding-right: get-vw(124px);
+                    margin-bottom: get-vw(20px);
+                }
+                @include tablet-small{
+                    padding-right: 0;
+                    margin-bottom: 15px;
+                }
+                &:nth-child(2n){
+                    padding-right: 14px;
+                    @include vw{
+                        padding-right: get-vw(14px);
+                    }
+                    @include tablet-small{
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.send-contact{
+    &--filled{
+        padding: 20px 20px 0;
+        @include vw{
+            padding: get-vw(20px) get-vw(20px) 0;
+        }
+        @include mobile{
+            padding: 10px 10px 0;
+        }
+        .info-box{
+            display: grid;
+            grid-template-columns: auto auto;
+            @include tablet{
+                display: block;
+            }
+            .info-item{
+                padding-right: 30px;
+                margin-bottom: 20px;
+                @include vw{
+                    padding-right: get-vw(30px);
+                    margin-bottom: get-vw(20px);
+                }
+                @include tablet-small{
+                    padding-right: 0;
+                    margin-bottom: 15px;
+                }
+                &:nth-child(2n){
+                    padding-right: 0px;
+                    @include vw{
+                        padding-right: get-vw(0px);
+                    }
+                    @include tablet-small{
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.info-per{
+    &::after{
+        content: "%";
+        margin-left: 3px
+    }
+}
+.info-days{
+    &::after{
+        content: "days";
+        margin-left: 3px;
+    } 
+}
+.delete-account{
+    h6{
+        margin-bottom: 6px;
+        @include vw{
+            margin-bottom: get-vw(6px);
+        }
+        @include tablet-small{
+            font-size: 16px;
+        }
+    }
+    p{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.1875;
+        margin-bottom: 30px;
+        @include vw{
+            margin-bottom: get-vw(30px);
+            font-size: get-vw(16px);
+        }
+        @include tablet-small{
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+    }
+    .form-field{
+        margin-bottom: 0;
+        input[type='radio']{
+            & + label{
+                width: 100%;
+                border-radius: 9px;
+                margin-bottom: 14px;
+                padding: 26px 16px 26px 62px;
+                @include vw{
+                    border-radius: get-vw(9px);
+                    margin-bottom: get-vw(14px);
+                    padding: get-vw(26px) get-vw(16px) get-vw(26px) get-vw(62px);
+                }
+                @include tablet-small{
+                    padding: 10px 10px 10px 42px;
+                }
+                @include themed(){
+                    color: t($text-secondary);
+                }
+                &::before{
+                    left: 19px;
+                    top: 50%;
+                    @include translate(0,-50%);
+                    @include vw{
+                        left: get-vw(19px);
+                    }
+                    @include tablet-small{
+                        left: 13px;
+                    }
+                }
+                &::after{
+                    left: 25px;
+                    top: 50%;
+                    @include translate(0,-50%);
+                    @include vw{
+                        left: get-vw(25px);
+                    }
+                    @include tablet-small{
+                        left: 19px;
+                    }
+                    @include mobile{
+                        left: 17px;
+                    }
+                }
+                h6{
+                    line-height: 1.2;
+                    margin-bottom: 7px;
+                    @include vw{
+                        margin-bottom: get-vw(7px);
+                    }
+                }
+                
+                .sub-heading,p{
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 1.1875;
+                    margin-bottom: 7px;
+                    @include vw{
+                        margin-bottom: get-vw(7px);
+                        font-size: get-vw(16px);
+                    }
+                    @include tablet-small{
+                        font-size: 12px;
+                    }
+    
+                }
+                p{
+                    font-weight: 400;
+                }
+                
+            }
+            &:checked{
+                & + label{
+                    background-color: rgba($primary-color,0.06);
+                }
+            }
+        }
+        
+    }
+    .form-button{
+        @include display-flex(flex);
+        @include justify-content(flex-end);
+        margin-top: 30px;
+        @include vw{
+            margin-top: get-vw(30px);
+        }
+        @include mobile{
+            @include flex-wrap(wrap);
+            margin-top: 10px;
+        }
+        .button{
+            width: auto;
+            margin-left: 20px;
+            @include vw{
+                margin-left: get-vw(20px);
+            }
+            @include mobile{
+                padding: 4px 9px;
+                font-size: 14px
+            }
+            @include mobile{
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    }
+    .download-info{
+        @include display-flex(flex);
+        @include align-item(flex-start);
+        @include tablet-small{
+            @include flex-wrap(wrap);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .icon{
+            margin-right: 20px;
+            @include vw{
+                margin-right: get-vw(20px);
+            }
+            @include tablet-small{
+                margin-right: 10px;
+            }
+            svg{
+                width: 39px;
+                height: 37px;
+                @include  vw{
+                    width: get-vw(39px);
+                    height: get-vw(37px);
+                }
+                @include tablet-small{
+                    width: 25px;
+                    height: 23px;
+                }
+                path{
+                    @include themed(){
+                        fill: t($text-secondary);
+                    }
+                }
+            }
+        }
+        .info{
+            max-width: 338px;
+            margin-right: auto;
+            @include vw{
+                max-width: get-vw(338px);
+            }
+            @include tablet{
+                width: calc(100% - 305px);
+            }
+            @include tablet-small{
+                width: calc(100% - 35px);
+            }
+        }
+        .button-download{
+            padding: 12px 29px;
+            margin-top: 30px;
+            @include vw{
+                padding: get-vw(12px) get-vw(29px);
+                margin-top: get-vw(30px);
+            }
+            @include tablet-small{
+                margin-top: 10px;
+                padding: 4px 9px;
+                font-size: 14px;
+                margin-left: 35px;
+            }
+        }
+    }
+    .delete-modal{
+        .modal-dialog{
+            max-width: 971px;
+            @include vw{
+                max-width: get-vw(971px);
+            }
+        }
+        .alert{
+            &--highlight{
+                background-color: rgba($primary-color,0.06);
+                padding: 15px 77px 15px 35px;
+                border-radius: 9px;
+                margin-bottom: 41px;
+                @include vw{
+                    padding: get-vw(15px) get-vw(77px) get-vw(15px) get-vw(35px);
+                    border-radius: get-vw(9px);
+                    margin-bottom: get-vw(41px);
+                }
+                @include tablet-small{
+                    padding: 15px;
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 1.35;
+                    margin-bottom: 0;
+                    @include vw{
+                        font-size: get-vw(14px);
+                    }
+                    a{
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+        .modal-header{
+            display: block;
+            position: relative;
+            .modal-title{
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 1.35;
+                margin-bottom: 4px;
+                @include themed(){
+                    color: t($text-secondary);
+                }
+                @include vw{
+                    font-size: get-vw(20px);
+                    margin-bottom: get-vw(4px);
+                }
+            }
+            p{
+                font-size: 16px;
+                line-height: 1.375;
+                margin-bottom: 0;
+                @include themed(){
+                    color: rgba(t($text-secondary),0.9);
+                }
+                @include vw{
+                    font-size: get-vw(16px);
+                }
+            }
+            .close{
+                position: absolute;
+                right: 16px;
+                top: 17px;
+                opacity: 1;
+                margin: 0;
+                padding: 0;
+                font-weight: 400;
+                line-height: 29px;
+                @include display-flex(flex);
+                @include align-item(center);
+                @include justify-content(center);
+                font-size: 16px;
+                @include vw{
+                    right: get-vw(16px);
+                    top: get-vw(17px);
+                    width: get-vw(29px);
+                    height: get-vw(29px);
+                    line-height: get-vw(29px);
+                    font-size: get-vw(16px);
+                }
+                svg{
+                    path{
+                        fill: $button-red;
+                    }
+                }
+            }
+        }
+        .modal-footer{
+            @include justify-content(center);
+        }
+        .form-field{
+            text-align: center;
+            label{
+                display: block;
+                text-align: center;
+                font-size: 20px;
+                line-height: 1.35;
+                margin-bottom: 26px;
+                font-weight: 600;
+                @include themed(){
+                    color: rgba(t($text-secondary),0.9);
+                }
+                @include vw{
+                    font-size: get-vw(20px);
+                    margin-bottom: get-vw(26px);
+                }
+            }
+            .form-input{
+                width: 50px;
+                height: 45px;
+                margin-right: 20px;
+                display: inline-block;
+                padding: 10px;
+                text-align: center;
+                @include vw{
+                    width: get-vw(50px);
+                    height: get-vw(45px);
+                    margin-right: get-vw(20px);
+                    padding: get-vw(10px);
+                }
+                @include tablet-small{
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 10px;
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    .otp-modal{
+        .modal-dialog{
+            max-width: 600px;
+            @include vw{
+                max-width: get-vw(600px);
+            }
+        }
+        .modal-footer{
+            .button{
+                @include tablet-small{
+                    padding: 10px 20px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }  
+}
+.no-record{
+    text-align: center;
+    font-size: 16px;
+    color: #ff0000;
+    margin: 0;
+    padding: 30px 0;
+    @include vw{
+        font-size: get-vw(16px);
+        padding: get-vw(30px) 0;
+    }
+}
+.full-width{
+    width: 100%;
+}
+.form-button .button-verify{
+    padding: 6px 24px;
+    height: 45px;
+    margin-left: 0 !important;
+    margin-top: 28px;
+    @include vw{
+        padding: get-vw(6px) get-vw(24px);
+        height: get-vw(45px);
+        margin-top: get-vw(28px);
+    }
+}
+.edit-details{
+    .upload{
+        @include display-flex(flex);
+        margin-bottom: 15px;
+        @include vw{
+            margin-bottom: get-vw(15px);
+        }
+        @include tablet-small{
+            @include flex-wrap(wrap);
+        }
+        .upload-image{
+            width: 283px;
+            margin-right: 27px;
+            border-radius: 5px;
+            position: relative;
+            @include display-flex(flex);
+            @include align-item(center);
+            @include justify-content(center);
+            cursor: pointer;
+            @include themed(){
+                background-color: t($bg);
+                border: 1px dashed t($border);
+            }
+            @include vw{
+                width: get-vw(283px);
+                margin-right: get-vw(27px);
+                border-radius: get-vw(5px);
+            }
+            @include tablet-small{
+                width: 165px;
+                height: 165px;
+                margin-right: auto;
+                margin-left: auto;
+                margin-bottom: 20px;
+            }
+            input[type='file']{
+                opacity: 0;
+                position: absolute;
+            }
+            label{
+                text-align: center;
+                width: 112px;
+                cursor: pointer;
+                @include vw{
+                    width: get-vw(112px);
+                }
+                svg{
+                    width: 75px;
+                    height: 69px;
+                    @include vw{
+                        width: get-vw(75px);
+                        height: get-vw(69px);
+                    }
+                    @include tablet-small{
+                        width: 45px;
+                        height: 39px;
+                    }
+                    path{
+                        @include themed(){
+                            fill: t($text);
+                        }
+                    }
+                }
+                span{
+                   display: block;
+                   line-height: 1.714285;
+                   @include themed(){
+                    color: t($text);
+                   }
+                   .color-primary{
+                    font-weight: 700;
+                    color: $primary-color;
+                   }
+                }
+            }
+        }
+    }
+    .upload-fields{
+        width: calc(100% - 310px);
+        @include vw{
+            width: calc(100% - #{get-vw(310px)});
+        }
+        @include tablet-small{
+            width: 100%;
+        }
+        .form-field{
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    .flex-box{
+        padding: 0;
+        @include tablet{
+            @include flex-wrap(wrap);
+        }
+        .flex-item{
+            margin: 0;
+            margin-right: 23px;
+            @include vw{
+                margin-right: get-vw(23px);
+            }
+            @include tablet{
+                margin-right: 0;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    .form-button{
+        @include display-flex(flex);
+        @include justify-content(flex-end);
+        .button{
+            width: auto;
+            margin-left: 20px;
+            @include vw{
+                margin-left: get-vw(20px);
+            }
+            @include mobile{
+                padding: 4px 9px;
+                font-size: 14px;
+                margin-left: 10px;
+            }
+        }
+    }
+}
